@@ -64,8 +64,12 @@ cb_loan_cancelled = {
 cb_spy_discovered = {
 	valid_for_subject = no
 
-	is_triggered_only = yes
-	months = 12
+    prerequisites = {
+        has_opinion_modifier = {
+            who = FROM
+            modifier = discovery_of_evil
+        }
+    }
 
 	war_goal = superiority_spy
 }
