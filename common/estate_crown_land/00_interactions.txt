@@ -1,0 +1,668 @@
+interaction = {
+    key = sale_of_titles
+    random_seed = crown_land_share
+	cooldown_months = 60
+
+    trigger = {
+        crown_land_share = 0.1
+        NOT = { num_of_rebel_armies = 1 }
+		NOT = { num_of_rebel_controlled_provinces = 1 }
+		hidden_trigger = { has_any_estates = yes }
+    }
+    effect = {
+		if = {
+            limit = { current_age = age_of_discovery }
+            add_years_of_estate_land_income = 2.5
+        }
+        else_if = {
+            limit = { current_age = age_of_reformation }
+            add_years_of_estate_land_income = 2.0
+        }
+        else_if = {
+            limit = { current_age = age_of_absolutism }
+            add_years_of_estate_land_income = 1.5
+        }
+        else_if = {
+            limit = { current_age = age_of_revolutions }
+            add_years_of_estate_land_income = 1.0
+        }
+        custom_tooltip = ESTATES_SALE_OF_TITLES_DESC
+        give_estate_land_share_gigantic = { estate = all }
+        add_estate_loyalty = {
+            estate = all
+            loyalty = 10
+            short = yes
+        }
+		if = {
+			limit = {
+				ROOT = { has_country_flag = recent_land_distribution }
+			}
+			clr_country_flag = recent_land_distribution
+		}
+		set_country_flag = recent_land_distribution
+    }
+	ai_will_do = {
+		factor = 50
+		modifier = {
+			factor = 0
+			OR = {
+				NOT = { crown_land_share = 35 }
+				AND = {
+					is_absolutism_active = yes
+					NOT = { crown_land_share = 50 }
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			OR = {
+				NOT = { crown_land_share = 40 }
+				AND = {
+					is_absolutism_active = yes
+					NOT = { crown_land_share = 50 }
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			ROOT = { NOT = { num_of_loans = 1 } }
+		}
+		modifier = {
+			factor = 0.5
+			ROOT = { is_in_deficit = no }
+		}
+		modifier = {
+			factor = 1.25
+			ROOT = { has_any_disaster = yes }
+		}
+		modifier = {
+			factor = 1.5
+			ROOT = { 
+				num_of_loans = 2
+				is_in_deficit = yes
+			}
+		}
+		modifier = {
+			factor = 1.5
+			ROOT = { num_of_loans = 5 }
+		}
+		modifier = {
+			factor = 1.5
+			ROOT = { num_of_loans = 10 }
+		}
+		modifier = {
+			factor = 1.5
+			ROOT = { num_of_loans = 15 }
+		}
+		modifier = {
+			factor = 1.5
+			ROOT = { num_of_loans = 20 }
+		}
+		modifier = {
+			factor = 1.2
+			NOT = {
+				estate_loyalty = {
+					estate = all
+					loyalty = 25
+				}
+			}
+		}
+		modifier = {
+			factor = 1.5
+			crown_land_share = 40
+		}
+		modifier = {
+			factor = 1.5
+			crown_land_share = 80
+		}
+		modifier = {
+			factor = 0.75
+			num_of_powerful_estates = 1
+		}
+		modifier = {
+			factor = 0.8
+			ROOT = { 
+				has_country_flag = recent_land_distribution
+				NOT = {
+					had_country_flag = {
+						flag = recent_land_distribution
+						days = 5475
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 1.2
+			ROOT = { 
+				had_country_flag = {
+					flag = recent_land_distribution
+					days = 10950
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			ROOT = { 
+				has_country_flag = recent_land_seizure
+				NOT = {
+					had_country_flag = {
+						flag = recent_land_seizure
+						days = 5475
+					}
+				}
+			}
+		}
+	}
+}
+
+interaction = {
+    key = summon_the_diet
+    random_seed = random
+	cooldown_months = 60
+
+    trigger = {
+		if = {
+			limit = {
+				ROOT = { ai = no }
+			}
+			ROOT = {
+				hidden_trigger = { has_any_estates = yes }
+				NOT = { has_any_active_estate_agenda = yes }
+				NOT = { has_government_attribute = blocked_call_diet }
+			}
+		}
+		else_if = {
+			limit = {
+				ROOT = { has_country_modifier = xorme_ai_valid_nation }
+				has_global_flag = xorme_ai_initialization_happened
+				
+			}
+			ROOT = {
+				hidden_trigger = { has_any_estates = yes }
+				NOT = { has_any_active_estate_agenda = yes }
+				NOT = { has_government_attribute = blocked_call_diet }
+				is_at_war = no
+				is_free_or_tributary_trigger = yes
+				has_estate = xorme_ai_estate
+			}
+		}
+		else = {
+			always = no
+		}
+    }
+
+    effect = {
+        custom_tooltip = ESTATES_SUMMON_THE_DIET_DESC
+	
+		hidden_effect = {
+			#PLAYER AGENDA
+			if = {
+				limit = { ROOT = { ai = no } }
+				country_event = { id = estate_privileges_and_agendas_events.3 } 
+			}
+			#AI AGENDA
+			else = {
+				country_event = { id = xorme_ai_estates_and_agendas.1 }
+			}  
+		}
+		custom_tooltip = SEPERATOR_TOOLTIP
+		if = {
+			limit = {
+				ROOT = {has_country_flag = recent_estate_agenda }
+			}
+			clr_country_flag = recent_estate_agenda
+		}
+		set_country_flag = recent_estate_agenda
+
+        add_estate_influence_modifier = {
+            estate = all
+            desc = EST_VAL_DIET_SUMMONED
+            duration = 7300
+            influence = 5
+            short = yes
+        }
+        add_estate_loyalty = {
+            estate = all
+            loyalty = 5
+            short = yes
+        }
+    }
+	ai_will_do = {
+		factor = 10.0
+		modifier = {
+			factor = 0
+			ROOT = { NOT = { has_country_modifier = xorme_ai_valid_nation } }
+		}
+		modifier = {
+			factor = 0
+			crown_land_share = 85
+		}
+		modifier = {
+			factor = 0
+			estate_loyalty = {
+				estate = all
+				loyalty = 80
+			}
+		}
+		modifier = {
+			factor = 0.5
+			estate_loyalty = {
+				estate = all
+				loyalty = 60
+			}
+		}
+		modifier = {
+			factor = 2.0
+			estate_loyalty = {
+				estate = all
+				loyalty = 45
+			}
+		}
+		modifier = {
+			factor = 10.0
+			ROOT = { has_country_modifier = xorme_ai_valid_nation }
+		}
+	}
+}
+
+interaction = {
+    key = seize_land
+    random_seed = random
+	cooldown_months = 60
+
+    trigger = {
+		hidden_trigger = { has_any_estates = yes }
+        NOT = { crown_land_share = 100 }
+        NOT = { num_of_rebel_armies = 1 }
+		NOT = { num_of_rebel_controlled_provinces = 1 }
+		#The following if/else_if-statements match those in estate_privileges_and_agendas_events.2.a. If those change, these should too.
+		if = {
+			limit = {
+				ROOT = {
+					OR = {
+						has_estate_privilege = estate_brahmins_statutory_rights
+						AND = {
+							religion = hinduism
+							has_estate = estate_brahmins
+						}
+					}
+					has_estate = estate_brahmins
+				}
+			}
+			ROOT = { NOT = { has_estate_privilege = estate_brahmins_statutory_rights } }
+		}
+		else_if = {
+			limit = {
+				ROOT = {
+					OR = {
+						has_estate_privilege = estate_nobles_statutory_rights
+						AND = {
+							has_estate = estate_nobles
+							government = monarchy
+						}
+					}
+				}
+			}
+			ROOT = {NOT = { has_estate_privilege = estate_nobles_statutory_rights } }
+		}
+		else_if = {
+			limit = {
+				ROOT = {
+					OR = {
+						has_estate_privilege = estate_burghers_statutory_rights
+						AND = {
+							has_estate = estate_burghers
+							government = republic
+						}
+					}
+				}
+			}
+			ROOT = {NOT = { has_estate_privilege = estate_burghers_statutory_rights } }
+		}
+		else_if = {
+			limit = {
+				ROOT = {
+					OR = {
+						has_estate_privilege = estate_church_statutory_rights
+						AND = {
+							has_estate = estate_church
+							government = theocracy
+						}
+					}
+				}
+			}
+			ROOT = { NOT = { has_estate_privilege = estate_church_statutory_rights } }
+		}
+        is_at_war = no
+    }
+    effect = {
+        custom_tooltip = ESTATES_SEIZE_LAND_DESC
+        take_estate_land_share_massive = { estate = all }
+		custom_tooltip = SEPERATOR_TOOLTIP
+		
+		if = {
+			limit = {
+				ROOT = { has_country_flag = recent_land_seizure }
+			}
+			clr_country_flag = recent_land_seizure
+		}
+		set_country_flag = recent_land_seizure
+
+        add_estate_loyalty = {
+            estate = all
+            loyalty = -20
+            short = yes
+        }
+		custom_tooltip = seize_land_rebels_tt
+		if = {
+			limit = {
+				NOT = {
+					estate_loyalty = {
+						estate = all
+						loyalty = 50
+					}
+				}
+				estate_loyalty = {
+					estate = all
+					loyalty = 30
+				}
+			}
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					estate_loyalty = {
+						estate = all
+						loyalty = 30
+					}
+				}
+				estate_influence = {
+					estate = all
+					influence = 0
+				}				
+			}
+			spawn_rebels_seize_land_switch = yes
+		}
+	}
+	ai_will_do = {
+		factor = 100.0
+		modifier = {
+			factor = 0
+			crown_land_share = 30
+			has_any_disaster = yes
+			NOT = { #sorry, scripted triggers glitched out
+				OR = {
+					has_disaster = estate_brahmins_disaster
+					has_disaster = estate_burghers_disaster
+					has_disaster = estate_church_disaster
+					has_disaster = estate_cossacks_disaster
+					has_disaster = estate_dhimmi_disaster
+					has_disaster = estate_jains_disaster
+					has_disaster = estate_maratha_disaster
+					has_disaster = estate_nobility_disaster
+					has_disaster = estate_nomadic_tribes_disaster
+					has_disaster = estate_rajput_disaster
+					has_disaster = estate_vaisyas_disaster
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			ROOT = {
+				crown_land_share = 30
+				if = {
+					limit = { num_of_cities = 50 }
+					NOT = { army_size_percentage = 0.5 }
+				}
+				else_if = {
+					limit = { num_of_cities = 25 }
+					NOT = { army_size_percentage = 0.75 }
+				}
+				else = {
+					NOT = { army_size_percentage = 0.9 }
+				}
+				if = {
+					limit = { is_emperor = yes }
+					NOT = { army_size = 50 }
+				}
+				NOT = { army_size = 100 }
+				NOT = { #sorry, scripted triggers glitched out
+					OR = {
+						has_disaster = estate_brahmins_disaster
+						has_disaster = estate_burghers_disaster
+						has_disaster = estate_church_disaster
+						has_disaster = estate_cossacks_disaster
+						has_disaster = estate_dhimmi_disaster
+						has_disaster = estate_jains_disaster
+						has_disaster = estate_maratha_disaster
+						has_disaster = estate_nobility_disaster
+						has_disaster = estate_nomadic_tribes_disaster
+						has_disaster = estate_rajput_disaster
+						has_disaster = estate_vaisyas_disaster
+						has_disaster_progress = {
+							disaster = estate_brahmins_disaster
+							value = 5
+						}
+						has_disaster_progress = {
+							disaster = estate_burghers_disaster
+							value = 5
+						}
+						has_disaster_progress = {
+							disaster = estate_church_disaster
+							value = 5
+						}
+						has_disaster_progress = {
+							disaster = estate_cossacks_disaster
+							value = 5
+						}
+						has_disaster_progress = {
+							disaster = estate_dhimmi_disaster
+							value = 5
+						}
+						has_disaster_progress = {
+							disaster = estate_jains_disaster
+							value = 5
+						}
+						has_disaster_progress = {
+							disaster = estate_maratha_disaster
+							value = 5
+						}
+						has_disaster_progress = {
+							disaster = estate_nobility_disaster
+							value = 5
+						}
+						has_disaster_progress = {
+							disaster = estate_nomadic_tribes_disaster
+							value = 5
+						}
+						has_disaster_progress = {
+							disaster = estate_rajput_disaster
+							value = 5
+						}
+						has_disaster_progress = {
+							disaster = estate_vaisyas_disaster
+							value = 5
+						}
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 1.5
+			is_absolutism_active = yes
+			ROOT = { NOT = { num_of_rebel_armies = 1 } }
+		}
+		modifier = {
+			factor = 1.5
+			is_absolutism_active = yes
+			ROOT = { NOT = { average_unrest = 1 } }
+			ROOT = { NOT = { num_of_rebel_armies = 1 } }
+		}
+		modifier = {
+			factor = 2
+			ROOT = { NOT = { crown_land_share = 20 } }
+		}
+		modifier = {
+			factor = 2.0
+			ROOT = { NOT = { crown_land_share = 30 } }
+		}
+		modifier = {
+			factor = 1.2
+			ROOT = { NOT = { crown_land_share = 35 } }
+		}
+		modifier = {
+			factor = 1.2
+			ROOT = { NOT = { crown_land_share = 50 } }
+		}
+		modifier = {
+			factor = 1.1
+			ROOT = { stability = 2 }
+		}
+		modifier = {
+			factor = 1.1
+			ROOT = { stability = 3 }
+		}
+		modifier = {
+			factor = 0.5
+			ROOT = { average_unrest = 3 }
+		}
+		modifier = {
+			factor = 0.5
+			ROOT = { 
+				has_country_flag = recent_land_seizure
+				NOT = {
+					had_country_flag = {
+						flag = recent_land_seizure
+						days = 5475
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.75
+			ROOT = { 
+				has_country_flag = recent_land_seizure
+				NOT = {
+					had_country_flag = {
+						flag = recent_land_seizure
+						days = 10950
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			ROOT = { 
+				has_country_flag = recent_land_distribution
+				NOT = {
+					had_country_flag = {
+						flag = recent_land_distribution
+						days = 5475
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			NOT = {
+				estate_loyalty = {
+					estate = all
+					loyalty = 50
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			NOT = {
+				estate_loyalty = {
+					estate = all
+					loyalty = 40
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			NOT = {
+				estate_loyalty = {
+					estate = all
+					loyalty = 35 # Estate is almost disloyal
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+				estate_loyalty = {
+					estate = all
+					loyalty = 50 # Estate is basically disloyal
+				}
+			}
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { num_of_owned_areas = 2 }
+		}
+		modifier = {
+			factor = 10
+			ROOT = { 
+				OR = {
+					has_disaster = estate_brahmins_disaster
+					has_disaster = estate_burghers_disaster
+					has_disaster = estate_church_disaster
+					has_disaster = estate_cossacks_disaster
+					has_disaster = estate_dhimmi_disaster
+					has_disaster = estate_jains_disaster
+					has_disaster = estate_maratha_disaster
+					has_disaster = estate_nobility_disaster
+					has_disaster = estate_nomadic_tribes_disaster
+					has_disaster = estate_rajput_disaster
+					has_disaster = estate_vaisyas_disaster
+					has_disaster_progress = {
+						disaster = estate_brahmins_disaster
+						value = 5
+					}
+					has_disaster_progress = {
+						disaster = estate_burghers_disaster
+						value = 5
+					}
+					has_disaster_progress = {
+						disaster = estate_church_disaster
+						value = 5
+					}
+					has_disaster_progress = {
+						disaster = estate_cossacks_disaster
+						value = 5
+					}
+					has_disaster_progress = {
+						disaster = estate_dhimmi_disaster
+						value = 5
+					}
+					has_disaster_progress = {
+						disaster = estate_jains_disaster
+						value = 5
+					}
+					has_disaster_progress = {
+						disaster = estate_maratha_disaster
+						value = 5
+					}
+					has_disaster_progress = {
+						disaster = estate_nobility_disaster
+						value = 5
+					}
+					has_disaster_progress = {
+						disaster = estate_nomadic_tribes_disaster
+						value = 5
+					}
+					has_disaster_progress = {
+						disaster = estate_rajput_disaster
+						value = 5
+					}
+					has_disaster_progress = {
+						disaster = estate_vaisyas_disaster
+						value = 5
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,80 @@
+defined_text = {
+    name = GetXormeAICheatSettings
+	random = no
+
+    text = {
+        localisation_key = xorme_ai_cheat_settings_1
+		trigger = {
+			has_global_flag = xorme_ai_cheats_disabled
+		}
+    }
+	text = {
+        localisation_key = xorme_ai_cheat_settings_2
+		trigger = {
+			has_global_flag = xorme_ai_dynamic_cheats_active
+		}
+    }
+	text = {
+		 localisation_key = xorme_ai_cheat_settings_3
+		trigger = {
+			has_global_flag = xorme_ai_make_me_cry_active
+		}
+	}
+}
+
+defined_text = {
+    name = GetXormeAIStatus
+	random = no
+
+    text = {
+        localisation_key = xorme_ai_status_1
+		trigger = {
+			has_global_flag = xorme_ai_initialization_happened
+		}
+    }
+	text = {
+        localisation_key = xorme_ai_status_2
+		trigger = {
+			NOT = { has_global_flag = xorme_ai_initialization_happened }
+		}
+    }
+}
+
+defined_text = {
+    name = GetXormeAICheatStatus
+	random = no
+
+    text = {
+        localisation_key = xorme_ai_cheat_status_1
+		trigger = {
+			OR = {
+				has_global_flag = xorme_ai_dynamic_cheats_active
+				has_global_flag =  xorme_ai_make_me_cry_active
+			}
+		}
+    }
+	text = {
+        localisation_key = xorme_ai_cheat_status_2
+		trigger = {
+			has_global_flag = xorme_ai_cheats_disabled
+		}
+    }
+}
+
+defined_text = {
+    name = GetXormeAIGamemode
+	random = no
+
+    text = {
+        localisation_key = xorme_ai_singleplayer
+		trigger = {
+			has_global_flag = xorme_ai_singleplayer
+		}
+    }
+	text = {
+        localisation_key = xorme_ai_multiplayer
+		trigger = {
+			has_global_flag = xorme_ai_multiplayer
+		}
+    }
+}

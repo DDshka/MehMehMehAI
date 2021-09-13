@@ -1,0 +1,16 @@
+ai_nation = {
+	############################################################
+	diplomats = 1 # ai has to reserve a diplomat for short term action so it gets an extra to put it on equal footing with player
+	free_leader_pool = 2 # ai needs to have enough pool for 1 general & 1 admiral
+	free_mil_policy = 1
+	free_adm_policy = 1
+	free_dip_policy = 1
+	############################################################
+	infantry_cost = -0.05
+	cavalry_cost = -0.05
+	fort_maintenance_modifier = -0.5 #For proper fort logic
+	global_tax_income = 12 #Extra 1 ducat for early game // fixes bug of random eco-eval error
+	governing_capacity = 50 #Fixes pdx big brain (-_-)
+	sailors_recovery_speed = 0.25
+	global_supply_limit_modifier = 0.15 #REDUCE ARMY EVAL ERRORS + LESS LAG IN LATE GAME
+}

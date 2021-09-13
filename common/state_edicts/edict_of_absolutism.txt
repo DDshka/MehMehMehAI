@@ -1,0 +1,31 @@
+edict_of_absolutism = {
+	potential = {
+		current_age = age_of_absolutism
+	}
+	
+	allow = {
+		custom_trigger_tooltip = {
+			tooltip = edict_of_absolutism_tooltip
+			has_country_flag = edict_of_absolutism
+		}
+		current_age = age_of_absolutism
+		if = {
+			limit = { ROOT = { ai = yes } }
+			ROOT = { 
+				is_at_war = no
+				has_country_modifier = xorme_ai_valid_nation 
+			}
+		}
+	}
+	
+	modifier = {
+		local_monthly_devastation = -0.25
+	}
+	
+	color = {  116 198 240  }
+	
+	
+	ai_will_do = {
+		factor = 1
+	}
+}

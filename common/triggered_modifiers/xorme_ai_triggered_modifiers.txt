@@ -1,0 +1,166 @@
+#DYNAMIC AI CHEATS
+#SETUP
+xorme_ai_cheat_level_0 = {
+	potential = {
+		NOT = { has_global_flag = xorme_ai_cheats_disabled }
+		ROOT = {
+			NOT = { government = native }
+			ai = yes
+		}
+	}
+
+	trigger = {
+		always = yes
+	}
+	max_absolutism = 15 #Cuz ai cant use the disaster
+	governing_capacity_modifier = 0.10
+}
+
+xorme_ai_cheat_level_1 = {
+	potential = {
+		has_global_flag = xorme_ai_dynamic_cheats_active
+		ROOT = {
+			NOT = { government = native }
+			ai = yes
+		}
+	}
+
+	trigger = {
+		is_year = 1
+		NOT = { is_year = 1500 }
+    }
+
+    land_maintenance_modifier = -0.1
+    merc_maintenance_modifier = -0.1
+    naval_maintenance_modifier = -0.1
+	all_power_cost = -0.075
+}
+
+xorme_ai_cheat_level_2 = {
+	potential = {
+		has_global_flag = xorme_ai_dynamic_cheats_active
+		ROOT = {
+			NOT = { government = native }
+			ai = yes
+		}
+	}
+
+	trigger = {
+		is_year = 1500
+		NOT = { is_year = 1600 }
+	}
+
+    land_maintenance_modifier = -0.075
+    merc_maintenance_modifier = -0.075
+    naval_maintenance_modifier = -0.075
+	all_power_cost = -0.05
+}
+
+xorme_ai_cheat_level_3 = {
+	potential = {
+		has_global_flag = xorme_ai_dynamic_cheats_active
+		ROOT = {
+			NOT = { government = native }
+			ai = yes
+		}
+	}
+
+	trigger = {
+		is_year = 1600
+		NOT = { is_year = 1700 }
+	}
+
+    land_maintenance_modifier = -0.05
+    merc_maintenance_modifier = -0.05
+    naval_maintenance_modifier = -0.05
+	all_power_cost = -0.025
+}
+
+#MAKE ME CRY
+#SETUP
+xorme_ai_cheat_make_me_cry_ai = {
+	potential = {
+		has_global_flag = xorme_ai_make_me_cry_active
+		ROOT = {
+			NOT = { government = native }
+			ai = yes
+		}
+	}
+
+	trigger ={
+		always = yes
+	}
+
+	global_tax_income = 12 #1.0 ducats for early game stomp
+    land_maintenance_modifier = -0.2
+    merc_maintenance_modifier = -0.2
+    naval_maintenance_modifier = -0.2
+	land_forcelimit_modifier = 0.10
+	naval_forcelimit_modifier = 0.20
+	all_power_cost = -0.075
+	administrative_efficiency = 0.05
+}
+
+xorme_ai_cheat_make_me_cry_player = {
+	potential = {
+		has_global_flag = xorme_ai_make_me_cry_active
+	}
+
+	trigger = {
+		always = yes
+	}
+
+	diplomatic_reputation = -2
+	ae_impact = 0.1
+	global_autonomy = 0.05
+	years_of_nationalism = 5
+	liberty_desire = 20
+	all_power_cost = 0.05
+}
+
+xorme_ai_valid_nation = {
+	potential = {
+		has_global_flag = xorme_ai_initialization_happened
+	}
+
+	trigger = {
+		ROOT = {
+			NOT = { government = native }
+			total_development = 40
+			ai = yes
+		}
+	}
+	land_forcelimit = 1 #Extra 1 unit for eval
+	naval_forcelimit = 1 #Extra 1 unit for eval
+	global_tax_income = 6
+	state_maintenance_modifier = -0.3 #FOR BORKED EDICTS
+}
+
+#FOR AI ESTATE MENAGER
+xorme_estates_modifier = {
+	potential = {
+		ROOT = {
+			NOT = { government = native }
+			ai = yes
+		}
+	}
+	
+	trigger = {
+		ROOT = { has_any_estates = yes }
+	}
+
+	church_loyalty_modifier = 0.075
+	nobles_loyalty_modifier = 0.075
+	burghers_loyalty_modifier = 0.075
+	cossacks_loyalty_modifier = 0.05
+	brahmins_hindu_loyalty_modifier = 0.05
+	brahmins_muslim_loyalty_modifier = 0.05
+	brahmins_other_loyalty_modifier = 0.05
+	maratha_loyalty_modifier = 0.05
+	vaisyas_loyalty_modifier = 0.05
+	cossacks_loyalty_modifier = 0.05
+	nomadic_tribes_loyalty_modifier = 0.05
+	dhimmi_loyalty_modifier = 0.05
+	jains_loyalty_modifier = 0.05
+	rajput_loyalty_modifier = 0.05
+}

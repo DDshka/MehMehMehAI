@@ -1,0 +1,41 @@
+edict_centralization_effort = {
+	potential = {
+		always = yes
+	}
+	
+	allow = {
+		if = {
+			limit = { ROOT = { ai = yes } }
+			ROOT = { 
+				is_at_war = no
+				has_country_modifier = xorme_ai_valid_nation 
+			}
+		}
+		else = {
+			always = yes
+		}
+	}
+	
+	modifier = {
+		local_autonomy = -0.03
+	}
+	
+	color = {  220 178 155 }
+	
+	
+	ai_will_do = {
+		factor = 100.0
+		modifier = {
+			factor = 0
+			all_province_in_state = {
+				NOT = { local_autonomy = 60 }
+			}
+		}
+		modifier = {
+			factor = 10.0
+			any_province_in_state = {
+				local_autonomy = 80
+			}
+		}
+	}
+}

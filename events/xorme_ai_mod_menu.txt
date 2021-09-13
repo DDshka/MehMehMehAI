@@ -1,0 +1,145 @@
+namespace = xorme_ai_mod_menu
+
+#INITIALIZATION HAPPENED
+country_event = {
+	id = xorme_ai_mod_menu.1
+	title = "xorme_ai_mod_menu.1_title"
+	picture = "INVENTION_eventPicture"
+	desc = "xorme_ai_mod_menu.1_desc"
+	is_triggered_only = yes
+
+	immediate = {
+		#RUN PLAYER SETUP INFO
+	}
+
+	#SET DIFFICULTY
+	option = {
+		name = xorme_ai_mod_menu_option.1
+		hidden_effect = {
+			country_event = {
+				id = xorme_ai_mod_menu.2
+			}
+		}
+	}
+
+	#EXIT
+	option = {
+		name = xorme_ai_mod_menu_option.0
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						OR = {
+							has_global_flag = xorme_ai_cheats_disabled
+							has_global_flag = xorme_ai_dynamic_cheats_active
+							has_global_flag = xorme_ai_make_me_cry_active
+						}
+					}
+				}
+				set_global_flag = xorme_ai_dynamic_cheats_active
+			}
+		}
+	}
+}
+
+#DIFFICULTY
+country_event = {
+	id = xorme_ai_mod_menu.2
+	title = "xorme_ai_mod_menu.2_title"
+	picture = "INVENTION_eventPicture"
+	desc = "xorme_ai_mod_menu.2_desc"
+	is_triggered_only = yes
+
+	#SET DIFFICULTY
+	#NO CHEATS
+	option = {
+		name = xorme_ai_mod_menu_difficulty_option.1
+		custom_tooltip = xorme_ai_mod_menu_difficulty_option.1_disc
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_global_flag = xorme_ai_cheats_disabled } }
+				set_global_flag = xorme_ai_cheats_disabled
+				if = {
+					limit = {
+						has_global_flag = xorme_ai_dynamic_cheats_active
+					}
+					clr_global_flag = xorme_ai_dynamic_cheats_active
+				}
+				else_if = {
+					limit = {
+						has_global_flag = xorme_ai_make_me_cry_active
+					}
+					clr_global_flag = xorme_ai_make_me_cry_active
+				}
+				else = {}
+			}
+			country_event = {
+				id = xorme_ai_mod_menu.1
+			}
+		}
+	}
+	#DYNAMIC
+	option = {
+		name = xorme_ai_mod_menu_difficulty_option.2
+		custom_tooltip = xorme_ai_mod_menu_difficulty_option.2_disc
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_global_flag = xorme_ai_dynamic_cheats_active } }
+				set_global_flag = xorme_ai_dynamic_cheats_active
+				if = {
+					limit = {
+						has_global_flag = xorme_ai_cheats_disabled
+					}
+					clr_global_flag = xorme_ai_cheats_disabled
+				}
+				else_if = {
+					limit = {
+						has_global_flag = xorme_ai_make_me_cry_active
+					}
+					clr_global_flag = xorme_ai_make_me_cry_active
+				}
+				else = {}
+			}
+			country_event = {
+				id = xorme_ai_mod_menu.1
+			}
+		}
+	}
+	#MAKE ME CRY
+	option = {
+		name = xorme_ai_mod_menu_difficulty_option.3
+		custom_tooltip = xorme_ai_mod_menu_difficulty_option.3_disc
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_global_flag = xorme_ai_make_me_cry_active } }
+				set_global_flag = xorme_ai_make_me_cry_active
+				if = {
+					limit = {
+						has_global_flag = xorme_ai_cheats_disabled
+					}
+					clr_global_flag = xorme_ai_cheats_disabled
+				}
+				else_if = {
+					limit = {
+						has_global_flag = xorme_ai_dynamic_cheats_active
+					}
+					clr_global_flag = xorme_ai_dynamic_cheats_active
+				}
+				else = {}
+			}
+			country_event = {
+				id = xorme_ai_mod_menu.1
+			}
+		}
+	}
+
+	#BACK
+	option = {
+		name = xorme_ai_mod_menu_back_option
+		hidden_effect = {
+			country_event = {
+				id = xorme_ai_mod_menu.1
+			}
+		}
+	}
+}
