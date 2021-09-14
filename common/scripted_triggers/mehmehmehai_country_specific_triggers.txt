@@ -6,3 +6,59 @@ mehmehmehai_strong_cavalry_country_trigger = {
         tag = ZAZ
     }
 }
+
+mehmehmehai_strong_goods_produced_country_trigger = {
+     OR = {
+        tag = GBR
+        tag = PSK
+        tag = BUR
+        tag = USA
+        tag = GER
+    }
+}
+
+mehmehmehai_normal_goods_produced_country_trigger = {
+    OR = {
+        tag = CEB
+        tag = FRS
+        tag = BYT
+        tag = FLA
+        tag = HRZ
+        tag = CMI
+        tag = SUN
+        tag = ADU
+        tag = ZIM
+        tag = MVA
+        tag = ALH
+        tag = AMA
+        tag = BRZ
+        tag = CDL
+        tag = ITO
+        tag = SRV
+        tag = TRE
+        tag = TPR
+        tag = AMA
+        tag = ANS
+        tag = AKK
+        tag = ASA
+        tag = BNG
+        tag = BLG
+        tag = DTT
+        tag = HAN
+        tag = BRU
+        tag = GOS
+        tag = IRE
+        tag = MFA
+        tag = NAP
+        tag = NOL
+        tag = PER
+        tag = POR
+        tag = SZO
+        tag = SPI
+        tag = SAX
+        tag = SIC
+        tag = SLO
+        tag = SWE
+        tag = TEX
+    }
+}

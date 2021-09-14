@@ -283,20 +283,180 @@ plutocracy_ideas = {
 	}
 
 	ai_will_do = {
-		factor = 30.0
-		#PERSONALITY
+		factor = 1.0
+
+        #PERSONALITY
 		modifier = {
-			factor = 1.5
-			ruler_has_good_mil_personality = yes
+		    factor = 1.8
+		    ROOT = { ruler_has_personality = industrious_personality }
 		}
-		#POTENTIAL
+        modifier = {
+		    factor = 1.8
+		    ROOT = { ruler_has_personality = inspiring_leader_personality }
+		}
+		modifier = {
+		    factor = 1.8
+		    ROOT = { ruler_has_personality = righteous_personality }
+		}
+		modifier = {
+		    factor = 1.8
+		    ROOT = { personality = ai_militarist }
+		}
+        modifier = {
+		    factor = 1.05
+		    ROOT = { personality = ai_diplomat }
+		}
+        modifier = {
+		    factor = 1.4
+		    ROOT = { personality = ai_capitalist }
+		}
+		modifier = {
+		    factor = 1.05
+		    ROOT = { personality = ai_colonialist }
+		}
+
+		#RULER STATS
+		modifier = {
+		    factor = 0.2
+		    ROOT = { mil = 0 }
+		}
+        modifier = {
+		    factor = 0.3
+		    ROOT = { mil = 1 }
+		}
+        modifier = {
+		    factor = 0.6
+		    ROOT = { mil = 2 }
+		}
+        modifier = {
+		    factor = 1.0
+		    ROOT = { mil = 3 }
+		}
+        modifier = {
+		    factor = 1.4
+		    ROOT = { mil = 4 }
+		}
+        modifier = {
+		    factor = 1.8
+		    ROOT = { mil = 5 }
+		}
+        modifier = {
+		    factor = 2.0
+		    ROOT = { mil = 6 }
+		}
+
+	    #HEIR STATS
+		modifier = {
+		    factor = 0.75
+		    ROOT = { heir_mil = 0 }
+		}
+        modifier = {
+		    factor = 0.8
+		    ROOT = { heir_mil = 1 }
+		}
+        modifier = {
+		    factor = 0.9
+		    ROOT = { heir_mil = 2 }
+		}
+        modifier = {
+		    factor = 1.0
+		    ROOT = { heir_mil = 3 }
+		}
+        modifier = {
+		    factor = 1.4
+		    ROOT = { heir_mil = 4 }
+		}
+        modifier = {
+		    factor = 1.8
+		    ROOT = { heir_mil = 5 }
+		}
+        modifier = {
+		    factor = 2.0
+		    ROOT = { heir_mil = 6 }
+		}
+
+		#CONSORT STATS
+        modifier = {
+		    factor = 0.85
+		    ROOT = { consort_mil = 0 }
+		}
+        modifier = {
+		    factor = 0.85
+		    ROOT = { consort_mil = 1 }
+		}
+        modifier = {
+		    factor = 0.9
+		    ROOT = { consort_mil = 2 }
+		}
+        modifier = {
+		    factor = 1.0
+		    ROOT = { consort_mil = 3 }
+		}
+        modifier = {
+		    factor = 1.1
+		    ROOT = { consort_mil = 4 }
+		}
+        modifier = {
+		    factor = 1.15
+		    ROOT = { consort_mil = 5 }
+		}
+        modifier = {
+		    factor = 1.2
+		    ROOT = { consort_mil = 6 }
+		}
+
+        #POTENTIAL
+		modifier = {
+		    factor = 1.5
+            ROOT = {
+                has_global_modifier_value = {
+                    which = caravan_power
+                    value = 0.1
+                }
+            }
+		}
+		modifier = {
+		    factor = 1.8
+		    ROOT = {
+                has_global_modifier_value = {
+                    which = global_trade_goods_size_modifier
+                    value = 0.1
+                }
+		    }
+		}
+		modifier = {
+		    factor = 2.0
+		    mehmehmehai_strong_goods_produced_country_trigger = yes
+		}
+        modifier = {
+		    factor = 1.4
+		    mehmehmehai_normal_goods_produced_country_trigger = yes
+		}
+		modifier = {
+		    factor = 1.2
+		    OR = {
+		        xorme_medium_quality_trade_goods_trigger = yes
+		        xorme_high_quality_trade_goods_trigger = yes
+		    }
+		}
+
+        #IDEAS
+		modifier = {
+			factor = 1.15
+			ROOT = { has_idea_group = administrative_ideas }
+		}
+		modifier = {
+			factor = 1.4
+			ROOT = { has_idea_group = innovative_ideas }
+		}
 		modifier = {
 			factor = 2.0
-			xorme_has_strong_military_potential_trigger = yes
+			ROOT = { has_idea_group = spy_ideas }
 		}
+
 		#PRIORITY
 		modifier = {
-			factor = 30.0
+			factor = 2.0
 			xorme_can_select_first_idea_group_trigger = yes
 		}
 	}
