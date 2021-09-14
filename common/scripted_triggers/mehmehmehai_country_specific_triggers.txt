@@ -1,0 +1,8 @@
+mehmehmehai_strong_cavalry_country_trigger = {
+    OR = {
+        tag = PLC
+        tag = POL
+        tag = HUN
+        tag = ZAZ
+    }
+}
