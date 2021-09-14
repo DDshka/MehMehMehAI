@@ -496,20 +496,162 @@ horde_gov_ideas = {
 	}
 	
 	ai_will_do = {
-		factor = 30.0
-		#PERSONALITY
-		modifier = {
-			factor = 1.5
-			ruler_has_good_mil_personality = yes
-		}
-		#POTENTIAL
+		factor = 2.0
+
+        #PERSONALITY
 		modifier = {
 			factor = 2.0
-			xorme_has_strong_military_potential_trigger = yes
+			ROOT = { ruler_has_good_mil_personality = yes }
 		}
+		modifier = {
+		    factor = 1.8
+		    ROOT = { personality = ai_militarist }
+		}
+        modifier = {
+		    factor = 1.5
+		    ROOT = {
+		        OR = {
+		            personality = ai_diplomat
+		            personality = ai_capitalist
+                }
+		    }
+		}
+
+		#RULER STATS
+		modifier = {
+		    factor = 0.2
+		    ROOT = { mil = 0 }
+		}
+        modifier = {
+		    factor = 0.3
+		    ROOT = { mil = 1 }
+		}
+        modifier = {
+		    factor = 0.6
+		    ROOT = { mil = 2 }
+		}
+        modifier = {
+		    factor = 1.0
+		    ROOT = { mil = 3 }
+		}
+        modifier = {
+		    factor = 1.4
+		    ROOT = { mil = 4 }
+		}
+        modifier = {
+		    factor = 1.8
+		    ROOT = { mil = 5 }
+		}
+        modifier = {
+		    factor = 2.0
+		    ROOT = { mil = 6 }
+		}
+
+	    #HEIR STATS
+		modifier = {
+		    factor = 0.75
+		    ROOT = { heir_mil = 0 }
+		}
+        modifier = {
+		    factor = 0.8
+		    ROOT = { heir_mil = 1 }
+		}
+        modifier = {
+		    factor = 0.9
+		    ROOT = { heir_mil = 2 }
+		}
+        modifier = {
+		    factor = 1.0
+		    ROOT = { heir_mil = 3 }
+		}
+        modifier = {
+		    factor = 1.4
+		    ROOT = { heir_mil = 4 }
+		}
+        modifier = {
+		    factor = 1.8
+		    ROOT = { heir_mil = 5 }
+		}
+        modifier = {
+		    factor = 2.0
+		    ROOT = { heir_mil = 6 }
+		}
+
+		#CONSORT STATS
+        modifier = {
+		    factor = 0.85
+		    ROOT = { consort_mil = 0 }
+		}
+        modifier = {
+		    factor = 0.85
+		    ROOT = { consort_mil = 1 }
+		}
+        modifier = {
+		    factor = 0.9
+		    ROOT = { consort_mil = 2 }
+		}
+        modifier = {
+		    factor = 1.0
+		    ROOT = { consort_mil = 3 }
+		}
+        modifier = {
+		    factor = 1.1
+		    ROOT = { consort_mil = 4 }
+		}
+        modifier = {
+		    factor = 1.15
+		    ROOT = { consort_mil = 5 }
+		}
+        modifier = {
+		    factor = 1.2
+		    ROOT = { consort_mil = 6 }
+		}
+
+		#POTENTIAL
+		modifier = {
+		    factor = 2.0
+            ROOT = {
+                has_global_modifier_value = {
+                    which = cavalry_power
+                    value = 0.1
+                }
+            }
+		}
+		modifier = {
+		    factor = 2.0
+		    ROOT = {
+                has_global_modifier_value = {
+                    which = cavalry_cost
+                    value = -0.1
+                }
+		    }
+		}
+
+        #IDEAS
+		modifier = {
+			factor = 1.4
+			ROOT = { has_idea_group = administrative_ideas }
+		}
+		modifier = {
+			factor = 1.5
+			ROOT = { has_idea_group = economic_ideas }
+		}
+		modifier = {
+			factor = 1.4
+			ROOT = { has_idea_group = humanist_ideas }
+		}
+        modifier = {
+			factor = 2.0
+			ROOT = { has_idea_group = spy_ideas }
+		}
+        modifier = {
+			factor = 1.8
+			ROOT = { has_idea_group = diplomatic_ideas }
+		}
+
 		#PRIORITY
 		modifier = {
-			factor = 30.0
+			factor = 2.0
 			xorme_can_select_first_idea_group_trigger = yes
 		}
 	}
