@@ -1993,42 +1993,160 @@ spy_ideas = {
 	}
 
 	ai_will_do = {
-		factor = 0.6
-		#LIMIT
-		modifier = {
-			factor = 0.5
-			is_great_power = yes
-		}
-		modifier = {
-			factor = 0.75
-			total_development = 200
-		}
+		factor = 1.0
+
 		#PERSONALITY
 		modifier = {
-			factor = 1.5
+			factor = 1.8
 			ruler_has_personality = intricate_web_weaver_personality
 		}
 		modifier = {
-			factor = 1.5
+			factor = 1.6
 			ruler_has_personality = secretive_personality
 		}
+        modifier = {
+		    factor = 1.5
+		    ROOT = { personality = ai_diplomat }
+		}
+        modifier = {
+		    factor = 1.2
+		    ROOT = { personality = ai_militarist }
+		}
+        modifier = {
+		    factor = 0.9
+		    ROOT = { personality = ai_capitalist }
+		}
+
+		#RULER STATS
+		modifier = {
+		    factor = 0.2
+		    ROOT = { dip = 0 }
+		}
+        modifier = {
+		    factor = 0.3
+		    ROOT = { dip = 1 }
+		}
+        modifier = {
+		    factor = 0.6
+		    ROOT = { dip = 2 }
+		}
+        modifier = {
+		    factor = 1.0
+		    ROOT = { dip = 3 }
+		}
+        modifier = {
+		    factor = 1.4
+		    ROOT = { dip = 4 }
+		}
+        modifier = {
+		    factor = 1.8
+		    ROOT = { dip = 5 }
+		}
+        modifier = {
+		    factor = 2.0
+		    ROOT = { dip = 6 }
+		}
+
+	    #HEIR STATS
+		modifier = {
+		    factor = 0.75
+		    ROOT = { heir_dip = 0 }
+		}
+        modifier = {
+		    factor = 0.8
+		    ROOT = { heir_dip = 1 }
+		}
+        modifier = {
+		    factor = 0.9
+		    ROOT = { heir_dip 2 }
+		}
+        modifier = {
+		    factor = 1.0
+		    ROOT = { heir_dip = 3 }
+		}
+        modifier = {
+		    factor = 1.4
+		    ROOT = { heir_dip = 4 }
+		}
+        modifier = {
+		    factor = 1.8
+		    ROOT = { heir_dip = 5 }
+		}
+        modifier = {
+		    factor = 2.0
+		    ROOT = { heir_dip = 6 }
+		}
+
+		#CONSORT STATS
+        modifier = {
+		    factor = 0.85
+		    ROOT = { consort_dip = 0 }
+		}
+        modifier = {
+		    factor = 0.85
+		    ROOT = { consort_dip = 1 }
+		}
+        modifier = {
+		    factor = 0.9
+		    ROOT = { consort_dip = 2 }
+		}
+        modifier = {
+		    factor = 1.0
+		    ROOT = { consort_dip = 3 }
+		}
+        modifier = {
+		    factor = 1.1
+		    ROOT = { consort_dip = 4 }
+		}
+        modifier = {
+		    factor = 1.15
+		    ROOT = { consort_dip = 5 }
+		}
+        modifier = {
+		    factor = 1.2
+		    ROOT = { consort_dip = 6 }
+		}
+
 		#POTENTIAL
 		modifier = {
-			factor = 1.5
+			factor = 1.6
 			is_part_of_hre = yes
 		}
 		modifier = {
-			factor = 1.5
-			NOT = { num_of_cities = 10 }
+		    factor = 1.2
+		    ROOT = {
+		        current_income_balance = 10
+		    }
 		}
-		modifier = {
-			factor = 2.0
-			is_subject_other_than_tributary_trigger = yes
-		}
+
 		#IDEAS
+        modifier = {
+			factor = 1.6
+			ROOT = { has_idea_group = economic_ideas }
+		}
 		modifier = {
-			factor = 3.5
-			has_idea_group = plutocracy_ideas
+			factor = 1.8
+			ROOT = { has_idea_group = plutocracy_ideas }
+		}
+		modifier = {
+		    factor = 1.5
+		    ROOT = { has_idea_group = humanist_ideas }
+		}
+        modifier = {
+		    factor = 2.0
+		    ROOT = { has_idea_group = aristocratic_ideas }
+		}
+        modifier = {
+		    factor = 2.0
+		    ROOT = { has_idea_group = divine_ideas }
+		}
+        modifier = {
+		    factor = 2.0
+		    ROOT = { has_idea_group = horde_ideas }
+		}
+		modifier = {
+		    factor = 1.2
+		    ROOT = { has_idea_group = defensive_ideas }
 		}
 	}
 }
