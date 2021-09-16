@@ -1655,6 +1655,15 @@ quantity_ideas = {
 			factor = 1.5
 			technology_group = chinese
 		}
+		modifier = {
+		    factor = 1.4
+		    calc_true_if = {
+		        all_country = {
+                    is_rival = ROOT
+    	        }
+    	        amount = 4
+		    }
+		}
 
 		#IDEAS
 		modifier = {
@@ -2180,51 +2189,180 @@ diplomatic_ideas = {
 	}
 
 	ai_will_do = {
-		factor = 0.65
-		#LIMIT
+		factor = 1.0
+
 		modifier = {
-			factor = 0.1
-			ROOT = { is_subject_other_than_tributary_trigger = yes }
-		}
-		modifier = {
-			factor = 0.75
+			factor = 1.75
 			ROOT = { is_great_power = yes }
 		}
+
 		#PERSONALITY
 		modifier = {
 			factor = 1.5
 			ROOT = { ruler_has_good_dip_personality = yes }
 		}
-		#POTENTIAL
 		modifier = {
-			factor = 1.1
-			ROOT = { has_idea_group = defensive_ideas }
+		    factor = 0.25
+		    ROOT = { personality = ai_militarist }
 		}
+        modifier = {
+		    factor = 1.8
+		    ROOT = { personality = ai_diplomat }
+		}
+        modifier = {
+		    factor = 1.15
+		    ROOT = { personality = ai_capitalist }
+		}
+		modifier = {
+		    factor = 1.2
+		    ROOT = { personality = ai_colonialist }
+		}
+
+        #RULER STATS
+		modifier = {
+		    factor = 0.2
+		    ROOT = { dip = 0 }
+		}
+        modifier = {
+		    factor = 0.3
+		    ROOT = { dip = 1 }
+		}
+        modifier = {
+		    factor = 0.6
+		    ROOT = { dip = 2 }
+		}
+        modifier = {
+		    factor = 1.0
+		    ROOT = { dip = 3 }
+		}
+        modifier = {
+		    factor = 1.4
+		    ROOT = { dip = 4 }
+		}
+        modifier = {
+		    factor = 1.8
+		    ROOT = { dip = 5 }
+		}
+        modifier = {
+		    factor = 2.0
+		    ROOT = { dip = 6 }
+		}
+
+	    #HEIR STATS
+		modifier = {
+		    factor = 0.75
+		    ROOT = { heir_dip = 0 }
+		}
+        modifier = {
+		    factor = 0.8
+		    ROOT = { heir_dip = 1 }
+		}
+        modifier = {
+		    factor = 0.9
+		    ROOT = { heir_dip 2 }
+		}
+        modifier = {
+		    factor = 1.0
+		    ROOT = { heir_dip = 3 }
+		}
+        modifier = {
+		    factor = 1.4
+		    ROOT = { heir_dip = 4 }
+		}
+        modifier = {
+		    factor = 1.8
+		    ROOT = { heir_dip = 5 }
+		}
+        modifier = {
+		    factor = 2.0
+		    ROOT = { heir_dip = 6 }
+		}
+
+		#CONSORT STATS
+        modifier = {
+		    factor = 0.85
+		    ROOT = { consort_dip = 0 }
+		}
+        modifier = {
+		    factor = 0.85
+		    ROOT = { consort_dip = 1 }
+		}
+        modifier = {
+		    factor = 0.9
+		    ROOT = { consort_dip = 2 }
+		}
+        modifier = {
+		    factor = 1.0
+		    ROOT = { consort_dip = 3 }
+		}
+        modifier = {
+		    factor = 1.1
+		    ROOT = { consort_dip = 4 }
+		}
+        modifier = {
+		    factor = 1.15
+		    ROOT = { consort_dip = 5 }
+		}
+        modifier = {
+		    factor = 1.2
+		    ROOT = { consort_dip = 6 }
+		}
+
+		#POTENTIAL
 		modifier = {
 			factor = 1.5
 			ROOT = { is_part_of_hre = yes }
 		}
 		modifier = {
-			factor = 3.0
+			factor = 1.5
 			ROOT = { is_elector = yes }
 		}
 		modifier = {
-			factor = 6.0
+			factor = 2.0
 			ROOT = { is_emperor = yes }
 		}
-		#IDEAS
 		modifier = {
-			factor = 2.5
+		    factor = 1.4
+		    personal_union = 1
+		}
+        modifier = {
+		    factor = 1.4
+		    personal_union = 2
+		}
+        modifier = {
+		    factor = 1.4
+		    personal_union = 3
+		}
+		modifier = {
+		    factor = 1.6
+		    calc_true_if = {
+		        all_country = {
+                    is_rival = ROOT
+    	        }
+    	        amount = 4
+		    }
+		}
+
+		#IDEAS
+        modifier = {
+			factor = 1.3
 			ROOT = { has_idea_group = economic_ideas }
 		}
-		#TAG
 		modifier = {
-			factor = 6.5
-			tag = PAP
+			factor = 1.3
+			ROOT = { has_idea_group = expansion_ideas }
 		}
-		modifier = {
-			factor = 6.5
-			tag = HAB
+        modifier = {
+			factor = 2.0
+			ROOT = { has_idea_group = defensive_ideas }
+		}
+        modifier = {
+			factor = 1.5
+			ROOT = { has_idea_group = quality_ideas }
+		}
+        modifier = {
+			factor = 1.5
+			ROOT = { has_idea_group = divine_ideas }
 		}
 	}
 }
