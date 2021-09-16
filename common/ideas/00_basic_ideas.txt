@@ -2588,6 +2588,262 @@ trade_ideas = {
 	}
 }
 
+exploration_ideas = {
+	category = DIP
+	important = yes
+
+	bonus = {
+		cb_on_primitives = yes
+	}
+
+	quest_for_the_new_world	= {
+		may_explore = yes
+	}
+
+	colonial_ventures = {
+		colonists = 1
+	}
+
+	overseas_exploration = {
+		range = 0.5
+	}
+	land_of_opportunity = {
+		global_colonial_growth = 10
+	}
+	vice_roys  = {
+		global_tariffs = 0.10
+ 		envoy_travel_time = -0.20
+ 	}
+	free_colonies = {
+		expel_minorities_cost = -1.0
+	}
+	global_empire = {
+		naval_forcelimit_modifier = 0.25
+	}
+
+	ai_will_do = {
+		factor = 2.0
+
+		#LIMIT
+		modifier = {
+		    factor = 0
+		    ROOT = {
+		        OR = {
+		            is_colonial_nation = yes
+		            is_tribal = yes
+		            primitives = yes
+		            current_age = age_of_revolutions #too late'
+		            NOT = { num_of_ports = 2 }
+		        }
+		    }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = {
+				any_owned_province = {
+					has_port = yes
+					sea_zone = {
+						NOT = { area = eastern_mediterrenean_area }
+					}
+				}
+			}
+		}
+
+        #PERSONALITY
+		modifier = {
+			factor = 2.0
+			ROOT = {
+			    OR = {
+                    ruler_has_personality = expansionist_personality
+		            ruler_has_personality = navigator_personality
+                }
+			}
+		}
+        modifier = {
+		    factor = 1.4
+		    ROOT = { personality = ai_diplomat }
+		}
+        modifier = {
+		    factor = 1.25
+		    ROOT = { personality = ai_capitalist }
+		}
+        modifier = {
+		    factor = 2.0
+		    ROOT = { personality = ai_colonialist }
+		}
+
+        #RULER STATS
+		modifier = {
+		    factor = 0.2
+		    ROOT = { dip = 0 }
+		}
+        modifier = {
+		    factor = 0.3
+		    ROOT = { dip = 1 }
+		}
+        modifier = {
+		    factor = 0.6
+		    ROOT = { dip = 2 }
+		}
+        modifier = {
+		    factor = 1.0
+		    ROOT = { dip = 3 }
+		}
+        modifier = {
+		    factor = 1.4
+		    ROOT = { dip = 4 }
+		}
+        modifier = {
+		    factor = 1.8
+		    ROOT = { dip = 5 }
+		}
+        modifier = {
+		    factor = 2.0
+		    ROOT = { dip = 6 }
+		}
+
+	    #HEIR STATS
+		modifier = {
+		    factor = 0.75
+		    ROOT = { heir_dip = 0 }
+		}
+        modifier = {
+		    factor = 0.8
+		    ROOT = { heir_dip = 1 }
+		}
+        modifier = {
+		    factor = 0.9
+		    ROOT = { heir_dip 2 }
+		}
+        modifier = {
+		    factor = 1.0
+		    ROOT = { heir_dip = 3 }
+		}
+        modifier = {
+		    factor = 1.4
+		    ROOT = { heir_dip = 4 }
+		}
+        modifier = {
+		    factor = 1.8
+		    ROOT = { heir_dip = 5 }
+		}
+        modifier = {
+		    factor = 2.0
+		    ROOT = { heir_dip = 6 }
+		}
+
+		#CONSORT STATS
+        modifier = {
+		    factor = 0.85
+		    ROOT = { consort_dip = 0 }
+		}
+        modifier = {
+		    factor = 0.85
+		    ROOT = { consort_dip = 1 }
+		}
+        modifier = {
+		    factor = 0.9
+		    ROOT = { consort_dip = 2 }
+		}
+        modifier = {
+		    factor = 1.0
+		    ROOT = { consort_dip = 3 }
+		}
+        modifier = {
+		    factor = 1.1
+		    ROOT = { consort_dip = 4 }
+		}
+        modifier = {
+		    factor = 1.15
+		    ROOT = { consort_dip = 5 }
+		}
+        modifier = {
+		    factor = 1.2
+		    ROOT = { consort_dip = 6 }
+		}
+
+        #POTENTIAL
+		modifier = {
+			factor = 1.2
+			num_of_ports = 3
+		}
+		modifier = {
+			factor = 2.0
+			num_of_ports = 5
+		}
+		modifier = {
+			factor = 2.0
+			num_of_ports = 10
+		}
+		modifier = {
+			factor = 2.0
+			num_of_ports = 15
+		}
+		modifier = {
+			factor = 2.0
+			num_of_ports = 20
+		}
+        modifier = {
+            factor = 1.4
+            trade_income_percentage = 0.3
+        }
+        modifier = {
+            factor = 1.6
+            NOT = { total_development = 350 }
+        }
+
+        #TAG
+		modifier = {
+			factor = 2.0
+			OR = {
+				tag = POR
+				tag = CAS
+				tag = SPA
+				tag = FRA
+				tag = ENG
+				tag = GBR
+				tag = NED
+				tag = ICE
+				tag = BRI
+			}
+		}
+
+		#IDEAS
+		modifier = {
+		    factor = 1.25
+		    ROOT = { has_idea_group = administrative_ideas }
+		}
+        modifier = {
+		    factor = 1.8
+		    ROOT = { has_idea_group = expansion_ideas }
+		}
+        modifier = {
+		    factor = 1.25
+		    ROOT = { has_idea_group = humanist_ideas }
+		}
+        modifier = {
+		    factor = 1.8
+		    ROOT = { has_idea_group = naval_ideas }
+		}
+        modifier = {
+		    factor = 1.5
+		    ROOT = { has_idea_group = defensive_ideas }
+		}
+        modifier = {
+		    factor = 1.4
+		    ROOT = {
+		        AND = {
+		            OR = {
+		                has_idea_group = economic_ideas
+		                has_idea_group = religious_ideas
+		            }
+		            colony = 1
+		        }
+            }
+		}
+	}
+}
+
 economic_ideas = {
 	category = ADM
 
@@ -2687,200 +2943,6 @@ economic_ideas = {
 		modifier = {
 			factor = 5.0
 			xorme_can_select_third_idea_group_trigger = yes
-		}
-	}
-}
-
-exploration_ideas = {
-	category = DIP
-	important = yes
-
-	bonus = {
-		cb_on_primitives = yes
-	}
-
-	quest_for_the_new_world	= {
-		may_explore = yes
-	}
-
-	colonial_ventures = {
-		colonists = 1
-	}
-	
-	overseas_exploration = {
-		range = 0.5
-	}
-	land_of_opportunity = {
-		global_colonial_growth = 10
-	}
-	vice_roys  = {
-		global_tariffs = 0.10
- 		envoy_travel_time = -0.20
- 	}
-	free_colonies = {
-		expel_minorities_cost = -1.0
-	}
-	global_empire = {
-		naval_forcelimit_modifier = 0.25
-	}
-
-	ai_will_do = {
-		factor = 0.9
-		modifier = {
-			factor = 0
-			is_colonial_nation = yes
-		}
-		modifier = {
-			factor = 0
-			is_tribal = yes
-		}
-		modifier = {
-			factor = 0
-			primitives = yes
-		}
-		modifier = {
-			factor = 0
-			current_age = age_of_revolutions #too late
-		}
-		modifier = {
-			factor = 0
-			NOT = {
-				any_owned_province = {
-					has_port = yes
-					sea_zone = {
-						NOT = { area = eastern_mediterrenean_area }
-					}
-				}
-			}
-			NOT = { 
-				any_owned_province = { 
-					is_in_capital_area = yes
-					has_empty_adjacent_province = yes
-				} 
-			}
-		}
-		modifier = {
-			factor = 0.15
-			NOT = {
-				any_owned_province = {
-					has_port = yes
-					sea_zone = {
-						OR = {
-							NOT = { region = mediterrenean_region }
-							province_id = 1293 #Gibraltar
-							province_id = 1294 #Almeria
-						}
-						NOT = { area = red_sea_area }
-						NOT = { area = baltic_area }
-					}
-				}
-			}
-			NOT = { 
-				any_owned_province = { 
-					is_in_capital_area = yes
-					has_empty_adjacent_province = yes
-				} 
-			}
-		}
-		modifier = {
-			factor = 0.1
-			NOT = { num_of_ports = 3 }
-			NOT = { 
-				any_owned_province = { 
-					is_in_capital_area = yes
-					has_empty_adjacent_province = yes
-				}
-			}
-		}
-		modifier = {
-			factor = 0.1
-			NOT = { has_institution = renaissance }
-			NOT = { tag = POR }
-			NOT = { tag = CAS }
-		}
-		modifier = {
-			factor = 0.1
-			capital_scope = {
-				NOT = {
-					OR = {
-						region = france_region
-						region = iberia_region
-						region = british_isles_region
-						region = low_countries_region
-					}
-				}
-			}
-			NOT = { technology_group = high_american }
-		}
-		modifier = {
-			factor = 0.5
-			tag = ARA
-		}
-		modifier = {
-			factor = 0.2
-			NOT = { is_year = 1490 }
-			capital_scope = {
-				NOT = {
-					region = iberia_region
-				}
-			}
-		}
-		modifier = {
-			factor = 10
-			technology_group = high_american
-		}
-		modifier = {
-			factor = 1.2
-			num_of_ports = 3
-		}
-		modifier = {
-			factor = 2.0
-			num_of_ports = 5
-		}
-		modifier = {
-			factor = 2.0
-			num_of_ports = 10
-		}
-		modifier = {
-			factor = 2.0
-			num_of_ports = 15
-		}
-		modifier = {
-			factor = 2.0
-			num_of_ports = 20
-		}
-		modifier = {
-			factor = 2.0
-			OR = {
-				capital_scope = {
-					area = brittany_area
-				}
-				owns_all_provinces = {
-					area = brittany_area
-				}
-			}
-		}
-		modifier = {
-			factor = 100.0
-			xorme_exploration_idea_group_priority_trigger = yes
-		}
-		modifier = {
-			factor = 1000.0
-			AND = {
-				xorme_exploration_idea_group_priority_trigger = yes
-				OR = {
-					xorme_can_select_second_idea_group_trigger = yes
-					xorme_can_select_third_idea_group_trigger = yes
-				}
-			}
-		}
-		modifier = {
-			factor = 1000.0
-			OR = {
-				tag = POR
-				tag = CAS
-				tag = SPA
-			}
 		}
 	}
 }
@@ -3205,11 +3267,11 @@ influence_ideas = {
 	tribute_system = {
 		vassal_income = 0.25
 	}
-	
+
 	additional_loyalist_recruitment = {
 		reduced_liberty_desire = 15
 	}
-	
+
 	integrated_elites = {
 		diplomatic_annexation_cost = -0.25
 	}
