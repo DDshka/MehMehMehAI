@@ -1269,6 +1269,202 @@ defensive_ideas = {
 	}
 }
 
+quality_ideas = {
+	category = MIL
+
+	bonus = {
+		discipline = 0.05
+	}
+
+	private_to_marshal = {
+		infantry_power = 0.1
+	}
+	quality_education = {
+		army_tradition = 0.5
+	}
+	finest_of_horses = {
+		cavalry_power = 0.1
+	}
+	escort_ships = {
+		ship_durability = 0.05
+	}
+	naval_drill = {
+		naval_morale = 0.10
+	}
+	copper_bottoms = {
+		naval_attrition = -0.25
+	}
+	massed_battery = {
+		artillery_power = 0.1
+	}
+
+	ai_will_do = {
+		factor = 1.0
+
+		#PERSONALITY
+		modifier = {
+			factor = 1.4
+			ROOT = { ruler_has_good_mil_personality = yes }
+		}
+		modifier = {
+		    factor = 1.5
+		    ROOT = { personality = ai_militarist }
+		}
+        modifier = {
+		    factor = 0.9
+		    ROOT = { personality = ai_diplomat }
+		}
+        modifier = {
+		    factor = 1.15
+		    ROOT = { personality = ai_capitalist }
+		}
+		modifier = {
+		    factor = 1.2
+		    ROOT = { personality = ai_colonialist }
+		}
+
+		#RULER STATS
+		modifier = {
+		    factor = 0.2
+		    ROOT = { mil = 0 }
+		}
+        modifier = {
+		    factor = 0.3
+		    ROOT = { mil = 1 }
+		}
+        modifier = {
+		    factor = 0.6
+		    ROOT = { mil = 2 }
+		}
+        modifier = {
+		    factor = 1.0
+		    ROOT = { mil = 3 }
+		}
+        modifier = {
+		    factor = 1.4
+		    ROOT = { mil = 4 }
+		}
+        modifier = {
+		    factor = 1.8
+		    ROOT = { mil = 5 }
+		}
+        modifier = {
+		    factor = 2.0
+		    ROOT = { mil = 6 }
+		}
+
+	    #HEIR STATS
+		modifier = {
+		    factor = 0.75
+		    ROOT = { heir_mil = 0 }
+		}
+        modifier = {
+		    factor = 0.8
+		    ROOT = { heir_mil = 1 }
+		}
+        modifier = {
+		    factor = 0.9
+		    ROOT = { heir_mil = 2 }
+		}
+        modifier = {
+		    factor = 1.0
+		    ROOT = { heir_mil = 3 }
+		}
+        modifier = {
+		    factor = 1.4
+		    ROOT = { heir_mil = 4 }
+		}
+        modifier = {
+		    factor = 1.8
+		    ROOT = { heir_mil = 5 }
+		}
+        modifier = {
+		    factor = 2.0
+		    ROOT = { heir_mil = 6 }
+		}
+
+		#CONSORT STATS
+        modifier = {
+		    factor = 0.85
+		    ROOT = { consort_mil = 0 }
+		}
+        modifier = {
+		    factor = 0.85
+		    ROOT = { consort_mil = 1 }
+		}
+        modifier = {
+		    factor = 0.9
+		    ROOT = { consort_mil = 2 }
+		}
+        modifier = {
+		    factor = 1.0
+		    ROOT = { consort_mil = 3 }
+		}
+        modifier = {
+		    factor = 1.1
+		    ROOT = { consort_mil = 4 }
+		}
+        modifier = {
+		    factor = 1.15
+		    ROOT = { consort_mil = 5 }
+		}
+        modifier = {
+		    factor = 1.2
+		    ROOT = { consort_mil = 6 }
+		}
+
+		#POTENTIAL
+		modifier = {
+			factor = 1.5
+			is_great_power = yes
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { total_development = 400 }
+		}
+		modifier = {
+		    factor = 1.3
+		    ROOT = { num_of_ports = 8 }
+		}
+		modifier = {
+		    factor = 2.0
+		    mehmehmehai_disciplined_country_trigger = yes
+		}
+
+		#IDEAS
+		modifier = {
+			factor = 1.8
+			has_idea_group = religious_ideas
+		}
+		modifier = {
+			factor = 2.0
+			has_idea_group = innovativeness_ideas
+		}
+		modifier = {
+			factor = 2.0
+			has_idea_group = economic_ideas
+		}
+        modifier = {
+			factor = 1.2
+			has_idea_group = spy_ideas
+		}
+        modifier = {
+			factor = 1.4
+			has_idea_group = exploration_ideas
+		}
+        modifier = {
+			factor = 1.4
+			has_idea_group = trade_ideas
+		}
+
+		#PRIORITY
+		modifier = {
+			factor = 2.0
+			xorme_can_select_first_idea_group_trigger = yes
+		}
+	}
+}
+
 # WTF IS THIS?
 indigenous_ideas = {
 	category = MIL
@@ -2132,102 +2328,6 @@ maritime_ideas = {
 
 	ai_will_do = {
 		factor = 0.25
-	}
-}
-
-
-quality_ideas = {
-	category = MIL
-
-	bonus = {
-		discipline = 0.05
-	}
-
-	private_to_marshal = {
-		infantry_power = 0.1
-	}
-	quality_education = {
-		army_tradition = 0.5
-	}
-	finest_of_horses = {
-		cavalry_power = 0.1
-	}
-	escort_ships = {
-		ship_durability = 0.05
-	}
-	naval_drill = {
-		naval_morale = 0.10
-	}
-	copper_bottoms = {
-		naval_attrition = -0.25
-	}
-	massed_battery = {
-		artillery_power = 0.1
-	}
-
-	ai_will_do = {
-		factor = 2.1
-		#PERSONALITY
-		modifier = {
-			factor = 1.5
-			ruler_has_good_mil_personality = yes
-		}
-		#POTENTIAL
-		modifier = {
-			factor = 1.5
-			is_great_power = yes
-		}
-		modifier = {
-			factor = 1.7
-			ROOT = {
-				capital_scope = {
-					region = italy_region
-				}
-			}
-		}
-		modifier = {
-			factor = 1.5
-			NOT = { total_development = 400 }
-		}
-		modifier = {
-			factor = 2.0
-			is_subject_other_than_tributary_trigger = yes
-		}
-		modifier = {
-			factor = 2.0
-			xorme_has_strong_military_potential_trigger = yes
-		}
-		#IDEAS
-		modifier = {
-			factor = 3.0
-			has_idea_group = religious_ideas
-		}
-		modifier = {
-			factor = 3.5
-			has_idea_group = innovativeness_ideas
-		}
-		modifier = {
-			factor = 4.0
-			has_idea_group = economic_ideas
-		}
-		#TAG
-		modifier = {
-			factor = 4.5
-			xorme_innovative_idea_group_priority_trigger = yes
-		}
-		modifier = {
-			factor = 5.0
-			xorme_quality_idea_group_priority_trigger = yes
-		}
-		#PRIORITY
-		modifier = {
-			factor = 2.5
-			xorme_can_select_third_idea_group_trigger = yes
-		}		
-		modifier = {
-			factor = 30.0
-			xorme_can_select_first_idea_group_trigger = yes
-		}
 	}
 }
 
