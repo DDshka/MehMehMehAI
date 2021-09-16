@@ -62,3 +62,48 @@ mehmehmehai_normal_goods_produced_country_trigger = {
         tag = TEX
     }
 }
+
+mehmehmehai_disciplined_country_trigger = {
+    OR = {
+        tag = BRA
+        tag = PRU
+        tag = TEU
+        tag = TUR
+        tag = MAM
+        tag = BAV
+        tag = MBZ
+        tag = GBR
+        tag = BUR
+        tag = BRU
+        tag = BYZ
+        tag = KOL
+        tag = MNG
+        tag = IRE
+        tag = HES
+        tag = HRE
+        tag = HUN
+        tag = OIR
+        tag = MCM
+        tag = MUN
+        tag = POL
+        tag = RIG
+        tag = ROT
+        tag = SAX
+        tag = SWE
+        tag = ANS
+        tag = BYT
+        tag = RVA
+        tag = FKN
+        tag = FRA
+        tag = HAN
+        tag = LUN
+        tag = PAP
+        tag = UKR
+        tag = SPA
+        tag = SWI
+        tag = TIM
+        tag = TRI
+        tag = TUS
+        tag = WES
+    }
+}
