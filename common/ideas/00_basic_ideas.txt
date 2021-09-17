@@ -231,7 +231,7 @@ aristocracy_ideas = {
 		}
 		modifier = {
 			factor = 1.4
-			ROOT = { has_idea_group = innovative_ideas }
+			ROOT = { has_idea_group = innovativeness_ideas }
 		}
 		modifier = {
 			factor = 2.0
@@ -447,7 +447,7 @@ plutocracy_ideas = {
 		}
 		modifier = {
 			factor = 1.4
-			ROOT = { has_idea_group = innovative_ideas }
+			ROOT = { has_idea_group = innovativeness_ideas }
 		}
 		modifier = {
 			factor = 2.0
@@ -828,7 +828,7 @@ theocracy_gov_ideas = {
 		}
 		modifier = {
 			factor = 1.3
-			ROOT = { has_idea_group = innovative_ideas }
+			ROOT = { has_idea_group = innovativeness_ideas }
 		}
 		modifier = {
 			factor = 2.0
@@ -1781,69 +1781,160 @@ innovativeness_ideas = {
 	}
 
 	ai_will_do = {
-		factor = 0.6
+		factor = 1.0
+
+        #LIMIT
+        modifier = {
+			factor = 0.2
+			ROOT = { innovativeness = 75 }
+		}
+		modifier = {
+		    factor = 0.1
+		    ROOT = { has_reform = steppe_horde }
+		}
+		modifier = {
+		    factor = 0.5
+		    ROOT = { government = theocracy }
+		}
+
 		#PERSONALITY
 		modifier = {
-			factor = 1.5
-			ruler_has_good_adm_personality = yes
+			factor = 2.0
+			ROOT = { ruler_has_personality = free_thinker_personality }
 		}
+        modifier = {
+			factor = 2.0
+			ROOT = { ruler_has_personality = scholar_personality }
+		}
+
+		#RULER STATS
+		modifier = {
+		    factor = 0.5
+		    ROOT = { adm = 0 }
+		}
+        modifier = {
+		    factor = 0.8
+		    ROOT = { adm = 1 }
+		}
+        modifier = {
+		    factor = 1.1
+		    ROOT = { adm = 2 }
+		}
+        modifier = {
+		    factor = 1.5
+		    ROOT = { adm = 3 }
+		}
+        modifier = {
+		    factor = 1.8
+		    ROOT = { adm = 4 }
+		}
+        modifier = {
+		    factor = 1.9
+		    ROOT = { adm = 5 }
+		}
+        modifier = {
+		    factor = 2.0
+		    ROOT = { adm = 6 }
+		}
+
 		#POTENTIAL
 		modifier = {
-			factor = 1.5
-			innovativeness = 25
+			factor = 1.25
+			ROOT = {
+			    NOT = { innovativeness = 25 }
+			}
 		}
 		modifier = {
-			factor = 1.5
-			innovativeness = 50
+		    factor = 1.8
+		    ROOT = {
+		        AND = {
+		            adm = 4
+		            dip = 4
+		            mil = 4
+		        }
+		    }
 		}
 		modifier = {
-			factor = 1.5
-			innovativeness = 75
+		    factor = 2.0
+		    ROOT = {
+		        AND = {
+		            adm = 5
+		            dip = 5
+		            mil = 5
+		        }
+		    }
 		}
 		modifier = {
-			factor = 1.5
-			innovativeness = 100
-		}
-		modifier = {
-			factor = 1.5
+			factor = 1.2
 			in_golden_age = yes
 		}
 		modifier = {
-			factor = 1.5
-			technology_group = western
+		    factor = 1.2
+		    ROOT = { is_great_power = yes }
 		}
+		modifier = {
+		    factor = 1.3
+		    ROOT = { government = republic }
+		}
+		modifier = {
+		    factor = 1.5
+		    ROOT = {
+		        OR = {
+		            has_global_modifier_value = {
+		                which = idea_cost
+		                value = -0.05
+		            }
+                    has_global_modifier_value = {
+		                which = technology_cost
+		                value = -0.05
+		            }
+		        }
+		    }
+		}
+
+		#TAGS
 		modifier = {
 			factor = 1.5
 			ROOT = {
-				capital_scope = {
-					OR = {
-						region = north_german_region
-						region = south_german_region
-					}
-				}
+				tag = LAN
 			}
 		}
-		modifier = {
-			factor = 2.0
-			ROOT = {
-				capital_scope = {
-					region = italy_region
-				}
-			}
-		}
+
 		#IDEAS
 		modifier = {
-			factor = 4.5
+			factor = 1.15
+			has_idea_group = maritime_ideas
+		}
+		modifier = {
+			factor = 1.4
+			has_idea_group = aristocracy_ideas
+		}
+        modifier = {
+			factor = 1.2
+			has_idea_group = defensive_ideas
+		}
+        modifier = {
+			factor = 1.4
+			has_idea_group = divine_ideas
+		}
+        modifier = {
+			factor = 1.3
+			has_idea_group = horde_ideas
+		}
+        modifier = {
+			factor = 1.8
+			has_idea_group = quality_ideas
+		}
+        modifier = {
+			factor = 1.5
 			has_idea_group = offensive_ideas
 		}
 		modifier = {
-			factor = 7.5
-			has_idea_group = quality_ideas
-		}
-		#TAG
-		modifier = {
-			factor = 10.0
-			xorme_innovative_idea_group_priority_trigger = yes
+		    factor = 1.2
+		    AND = {
+		        is_part_of_hre = true
+		        has_idea_group = influence_ideas
+		    }
 		}
 	}
 }
