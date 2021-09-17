@@ -1975,82 +1975,214 @@ religious_ideas = {
 	}
 
 	ai_will_do = {
-		factor = 0.8
+		factor = 1.0
+
 		#LIMIT
 		modifier = {
 			factor = 0
-			has_idea_group = humanist_ideas
+			ROOT = {
+			    OR = {
+			        no_religion_penalty = yes
+			        religion = confucianism
+			        has_idea_group = humanist_ideas
+			        ruler_has_personality = sinner_personality
+			    }
+			}
 		}
 		modifier = {
-			factor = 0.5
-			NOT = { has_border_with_religious_enemy = yes }
+		    factor = 0.3
+		    ROOT = {
+		    	tolerance_heretic = 2
+		    }
 		}
-		modifier = {
-			factor = 0.5
-			religious_unity = 0.7
+        modifier = {
+		    factor = 0.2
+		    ROOT = {
+	            tolerance_heathen = 2
+		    }
 		}
-		modifier = {
-			factor = 0.5
-			ROOT = { government = republic }
-		}
-		modifier = {
-			factor = 0.8
-			xorme_nation_with_tolerance_trigger = yes
-		}
+
 		#PERSONALITY
 		modifier = {
-			factor = 1.5
+			factor = 2.0
 			ruler_has_personality = zealot_personality
 		}
+        modifier = {
+		    factor = 0.9
+		    ROOT = { personality = ai_diplomat }
+		}
+        modifier = {
+		    factor = 1.3
+		    ROOT = { personality = ai_militarist }
+		}
+        modifier = {
+		    factor = 1.2
+		    ROOT = { personality = ai_capitalist }
+		}
+
+		#RULER STATS
+		modifier = {
+		    factor = 0.2
+		    ROOT = { adm = 0 }
+		}
+        modifier = {
+		    factor = 0.3
+		    ROOT = { adm = 1 }
+		}
+        modifier = {
+		    factor = 0.6
+		    ROOT = { adm = 2 }
+		}
+        modifier = {
+		    factor = 1.0
+		    ROOT = { adm = 3 }
+		}
+        modifier = {
+		    factor = 1.4
+		    ROOT = { adm = 4 }
+		}
+        modifier = {
+		    factor = 1.8
+		    ROOT = { adm = 5 }
+		}
+        modifier = {
+		    factor = 2.0
+		    ROOT = { adm = 6 }
+		}
+
+	    #HEIR STATS
+		modifier = {
+		    factor = 0.75
+		    ROOT = { heir_adm = 0 }
+		}
+        modifier = {
+		    factor = 0.8
+		    ROOT = { heir_adm = 1 }
+		}
+        modifier = {
+		    factor = 0.9
+		    ROOT = { heir_adm 2 }
+		}
+        modifier = {
+		    factor = 1.0
+		    ROOT = { heir_adm = 3 }
+		}
+        modifier = {
+		    factor = 1.4
+		    ROOT = { heir_adm = 4 }
+		}
+        modifier = {
+		    factor = 1.8
+		    ROOT = { heir_adm = 5 }
+		}
+        modifier = {
+		    factor = 2.0
+		    ROOT = { heir_adm = 6 }
+		}
+
+		#CONSORT STATS
+        modifier = {
+		    factor = 0.85
+		    ROOT = { consort_adm = 0 }
+		}
+        modifier = {
+		    factor = 0.85
+		    ROOT = { consort_adm = 1 }
+		}
+        modifier = {
+		    factor = 0.9
+		    ROOT = { consort_adm = 2 }
+		}
+        modifier = {
+		    factor = 1.0
+		    ROOT = { consort_adm = 3 }
+		}
+        modifier = {
+		    factor = 1.1
+		    ROOT = { consort_adm = 4 }
+		}
+        modifier = {
+		    factor = 1.15
+		    ROOT = { consort_adm = 5 }
+		}
+        modifier = {
+		    factor = 1.2
+		    ROOT = { consort_adm = 6 }
+		}
+
+
 		#POTENTIAL
 		modifier = {
 			factor = 2.0
-			OR = {
-				technology_group = eastern
-				technology_group = western
-				technology_group = muslim
-			}
+			NOT = { religious_unity = 0.65 }
 		}
 		modifier = {
-			factor = 2.5
-			NOT = { religious_unity = 0.7 }
-		}
-		modifier = {
-			factor = 2.5
+			factor = 1.5
 			ROOT = { government = theocracy }
 		}
 		modifier = {
-			factor = 3.0
-			has_border_with_religious_enemy = yes
-		}
-		#IDEAS
-		modifier = {
-			factor = 3.5
-			has_idea_group = quality_ideas
-		}
-		modifier = {
-			factor = 5.0
-			has_idea_group = quantity_ideas
-		}
-		#TAG
-		modifier = {
-			factor = 5.0
-			OR = {
-				tag = MOS
-				tag = RUS
-				tag = PER
-				tag = MUG
-				tag = ETH
+			factor = 2.0
+			ROOT = {
+			    any_neighbor_country = {
+                    NOT = { religion_group = ROOT }
+                }
 			}
 		}
-		#PRIORITY
-		modifier = {
-			factor = 4.5
-			xorme_can_select_second_idea_group_trigger = yes
+        modifier = {
+			factor = 1.4
+			ROOT = {
+			    any_neighbor_country = {
+			        AND = {
+			            religion_group = ROOT
+			            NOT = { religion = ROOT }
+			        }
+                }
+			}
 		}
 		modifier = {
-			factor = 5.0
-			xorme_can_select_sixth_idea_group_trigger = yes
+		    factor = 1.5
+		    AND = {
+		        ROOT = { is_part_of_hre = true }
+		        OR = {
+                    is_religion_enabled = protestant
+                    is_religion_enabled = reformed
+                }
+		    }
+		}
+		modifier = {
+		    factor = 1.5
+		    ROOT = {
+		        has_global_modifier_value = {
+                    which = missionary_strength
+                    value = 0.02
+		        }
+		    }
+		}
+
+		#IDEAS
+		modifier = {
+			factor = 1.4
+			has_idea_group = trade_ideas
+		}
+		modifier = {
+			factor = 1.4
+			has_idea_group = defensive_ideas
+		}
+		modifier = {
+			factor = 1.4
+			has_idea_group = divine_ideas
+		}
+        modifier = {
+			factor = 1.6
+			has_idea_group = quality_ideas
+		}
+        modifier = {
+			factor = 1.6
+			has_idea_group = quantity_ideas
+		}
+        modifier = {
+			factor = 1.3
+			has_idea_group = offensive_ideas
 		}
 	}
 }
