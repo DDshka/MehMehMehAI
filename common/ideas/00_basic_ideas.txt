@@ -2187,6 +2187,259 @@ religious_ideas = {
 	}
 }
 
+economic_ideas = {
+	category = ADM
+
+	bonus = {
+		development_cost = -0.2
+	}
+
+	bureaucracy = {
+		global_tax_modifier = 0.10
+	}
+	organised_construction = {
+		build_cost = -0.1
+	}
+	national_bank = {
+		inflation_reduction = 0.1
+	}
+	debt_and_loans = {
+		interest = -0.5
+	}
+	centralization = {
+		global_autonomy = -0.05
+	}
+	nationalistic_enthusiasm = {
+		land_maintenance_modifier = -0.05
+	}
+	smithian_economics = {
+		production_efficiency = 0.1
+ 	}
+
+	ai_will_do = {
+		factor = 1.0
+
+		#PERSONALITY
+		modifier = {
+		    factor = 1.8
+		    ROOT = { ruler_has_personality = midas_touched_personality }
+		}
+		modifier = {
+		    factor = 1.8
+		    ROOT = { ruler_has_personality = architectural_visionary_personality }
+		}
+		modifier = {
+		    factor = 2.0
+		    ROOT = { ruler_has_personality = lawgiver_personality }
+		}
+        modifier = {
+		    factor = 1.2
+		    ROOT = { personality = ai_diplomat }
+		}
+        modifier = {
+		    factor = 1.2
+		    ROOT = { personality = ai_militarist }
+		}
+        modifier = {
+		    factor = 1.8
+		    ROOT = { personality = ai_capitalist }
+		}
+
+		#RULER STATS
+		modifier = {
+		    factor = 0.2
+		    ROOT = { adm = 0 }
+		}
+        modifier = {
+		    factor = 0.3
+		    ROOT = { adm = 1 }
+		}
+        modifier = {
+		    factor = 0.6
+		    ROOT = { adm = 2 }
+		}
+        modifier = {
+		    factor = 1.0
+		    ROOT = { adm = 3 }
+		}
+        modifier = {
+		    factor = 1.4
+		    ROOT = { adm = 4 }
+		}
+        modifier = {
+		    factor = 1.8
+		    ROOT = { adm = 5 }
+		}
+        modifier = {
+		    factor = 2.0
+		    ROOT = { adm = 6 }
+		}
+
+	    #HEIR STATS
+		modifier = {
+		    factor = 0.75
+		    ROOT = { heir_adm = 0 }
+		}
+        modifier = {
+		    factor = 0.8
+		    ROOT = { heir_adm = 1 }
+		}
+        modifier = {
+		    factor = 0.9
+		    ROOT = { heir_adm 2 }
+		}
+        modifier = {
+		    factor = 1.0
+		    ROOT = { heir_adm = 3 }
+		}
+        modifier = {
+		    factor = 1.4
+		    ROOT = { heir_adm = 4 }
+		}
+        modifier = {
+		    factor = 1.8
+		    ROOT = { heir_adm = 5 }
+		}
+        modifier = {
+		    factor = 2.0
+		    ROOT = { heir_adm = 6 }
+		}
+
+		#CONSORT STATS
+        modifier = {
+		    factor = 0.85
+		    ROOT = { consort_adm = 0 }
+		}
+        modifier = {
+		    factor = 0.85
+		    ROOT = { consort_adm = 1 }
+		}
+        modifier = {
+		    factor = 0.9
+		    ROOT = { consort_adm = 2 }
+		}
+        modifier = {
+		    factor = 1.0
+		    ROOT = { consort_adm = 3 }
+		}
+        modifier = {
+		    factor = 1.1
+		    ROOT = { consort_adm = 4 }
+		}
+        modifier = {
+		    factor = 1.15
+		    ROOT = { consort_adm = 5 }
+		}
+        modifier = {
+		    factor = 1.2
+		    ROOT = { consort_adm = 6 }
+		}
+
+		#POTENTIAL
+		modifier = {
+			factor = 1.4
+			is_great_power = no
+		}
+		modifier = {
+			factor = 1.6
+			xorme_wealthy_region_trigger = yes
+		}
+		modifier = {
+			factor = 1.75
+			ROOT = {
+			    NOT = { num_of_cities = 20 }
+			}
+        }
+        modifier = {
+            factor = 1.5
+            ROOT = {
+                tax_income_percentage = 0.5
+            }
+        }
+        modifier = {
+            factor = 2.0
+            ROOT = {
+                any_owned_province = {
+                    NOT = { development = 12 }
+                    trade_goods = gold
+                }
+            }
+        }
+        modifier = {
+            factor = 1.5
+            ROOT = {
+                inflation = 5
+            }
+        }
+        modifier = {
+            factor = 1.33
+            ROOT = {
+                capital_scope = {
+                    is_prosperous = yes
+                }
+            }
+        }
+        modifier = {
+		    factor = 1.5
+		    ROOT = {
+		        AND = {
+		            adm = 4
+		            dip = 4
+		            mil = 4
+		        }
+		    }
+		}
+		modifier = {
+		    factor = 1.75
+		    ROOT = {
+		        AND = {
+		            adm = 5
+		            dip = 5
+		            mil = 5
+		        }
+		    }
+		}
+
+		#IDEAS
+		modifier = {
+			factor = 2.0
+			has_idea_group = quality_ideas
+		}
+		modifier = {
+			factor = 1.3
+			has_idea_group = diplomatic_ideas
+		}
+		modifier = {
+			factor = 1.2
+			has_idea_group = influence_ideas
+		}
+		modifier = {
+			factor = 1.4
+			has_idea_group = trade_ideas
+		}
+        modifier = {
+			factor = 1.6
+			has_idea_group = aristocracy_ideas
+		}
+        modifier = {
+			factor = 1.6
+			has_idea_group = horde_ideas
+		}
+        modifier = {
+			factor = 1.7
+			has_idea_group = naval_ideas
+		}
+        modifier = {
+			factor = 1.7
+			has_idea_group = offensive_ideas
+		}
+        modifier = {
+			factor = 2.0
+			has_idea_group = quantity_ideas
+		}
+	}
+}
+
 spy_ideas = {
 	category = DIP
 
@@ -3063,109 +3316,6 @@ exploration_ideas = {
 		            colony = 1
 		        }
             }
-		}
-	}
-}
-
-economic_ideas = {
-	category = ADM
-
-	bonus = {
-		development_cost = -0.2
-	}
-
-	bureaucracy = {
-		global_tax_modifier = 0.10
-	}
-	organised_construction = {
-		build_cost = -0.1
-	}
-	national_bank = {
-		inflation_reduction = 0.1
-	}
-	debt_and_loans = {
-		interest = -0.5
-	}
-	centralization = {
-		global_autonomy = -0.05
-	}
-	nationalistic_enthusiasm = {
-		land_maintenance_modifier = -0.05
-	}
-	smithian_economics = {
-		production_efficiency = 0.1
- 	}
-
-	ai_will_do = {
-		factor = 0.85
-		#LIMIT
-		modifier = {
-			factor = 0.5
-			NOT = { tax_income_percentage = 0.3 }
-		}
-		modifier = {
-			factor = 0.9
-			xorme_can_select_first_idea_group_trigger = yes
-		}
-		#PERSONALITY
-		modifier = {
-			factor = 1.5
-			ruler_has_good_adm_personality = yes
-		}
-		#POTENTIAL
-		modifier = {
-			factor = 1.5
-			is_great_power = yes
-		}
-		modifier = {
-			factor = 1.5
-			xorme_wealthy_region_trigger = yes
-		}
-		modifier = {
-			factor = 1.5
-			num_of_cities = 20
-		}
-		modifier = {
-			factor = 1.5
-			num_of_cities = 30
-		}
-		modifier = {
-			factor = 1.5
-			num_of_cities = 40
-		}
-		#TAG
-		modifier = {
-			factor = 2.5
-			OR = {
-				tag = MOS
-				tag = RUS
-			}
-		}
-		#IDEAS
-		modifier = {
-			factor = 3.0
-			has_idea_group = aristocracy_ideas
-		}
-		modifier = {
-			factor = 3.5
-			has_idea_group = offensive_ideas
-		}
-		modifier = {
-			factor = 4.0
-			has_idea_group = quality_ideas
-		}
-		modifier = {
-			factor = 4.5
-			has_idea_group = quantity_ideas
-		}
-		#PRIORITY
-		modifier = {
-			factor = 4.5
-			xorme_can_select_second_idea_group_trigger = yes
-		}
-		modifier = {
-			factor = 5.0
-			xorme_can_select_third_idea_group_trigger = yes
 		}
 	}
 }
