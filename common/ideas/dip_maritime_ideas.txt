@@ -1,0 +1,40 @@
+maritime_ideas = {
+	category = DIP
+
+	trigger = {
+		primitives = no
+	}
+
+	bonus = {
+		sea_repair = yes
+	}
+
+	merchant_traditions = {
+		naval_tradition_from_trade = 1.0
+	}
+	merchant_marine = {
+		global_sailors_modifier = 0.5
+	}
+	sheltered_ports = {
+		global_ship_repair = 0.1
+		sailor_maintenance_modifer = -0.1
+	}
+	grand_navy = {
+		naval_forcelimit_modifier = 0.5
+	}
+	ships_penny = {
+		global_ship_cost = -0.1
+	}
+	sea_hawks = {
+		free_leader_pool = 1
+		admiral_cost = -0.25
+	}
+	naval_fighting_instruction = {
+		blockade_efficiency = 0.5
+		privateer_efficiency = 0.25
+	}
+
+	ai_will_do = {
+		factor = 0.0
+	}
+}

@@ -1,0 +1,180 @@
+influence_ideas = {
+	category = DIP
+
+	bonus = {
+		unjustified_demands = -0.5
+	}
+
+	tribute_system = {
+		vassal_income = 0.25
+	}
+
+	additional_loyalist_recruitment = {
+		reduced_liberty_desire = 15
+	}
+
+	integrated_elites = {
+		diplomatic_annexation_cost = -0.25
+	}
+	buffer_states = {
+		diplomatic_upkeep = 1
+	}
+	diplomatic_influence = {
+		diplomatic_reputation = 2
+	}
+	postal_service = {
+		envoy_travel_time = -0.25
+	}
+	marcher_lords = {
+		vassal_forcelimit_bonus = 1
+	}
+
+	ai_will_do = {
+		factor = 1.0
+
+		#LIMIT
+		modifier = {
+			factor = 0
+			is_subject_other_than_tributary_trigger = yes
+		}
+
+        #PERSONALITY
+		modifier = {
+			factor = 1.5
+			ROOT = { ruler_has_personality = benevolent_personality }
+		}
+		modifier = {
+		    factor = 0.5
+		    ROOT = { personality = ai_militarist }
+		}
+        modifier = {
+		    factor = 1.2
+		    ROOT = { personality = ai_diplomat }
+		}
+        modifier = {
+		    factor = 1.15
+		    ROOT = { personality = ai_capitalist }
+		}
+		modifier = {
+		    factor = 1.3
+		    ROOT = { personality = ai_colonialist }
+		}
+
+        #RULER STATS
+		modifier = {
+		    factor = 0.2
+		    ROOT = { dip = 0 }
+		}
+        modifier = {
+		    factor = 0.3
+		    ROOT = { dip = 1 }
+		}
+        modifier = {
+		    factor = 0.6
+		    ROOT = { dip = 2 }
+		}
+        modifier = {
+		    factor = 1.0
+		    ROOT = { dip = 3 }
+		}
+        modifier = {
+		    factor = 1.4
+		    ROOT = { dip = 4 }
+		}
+        modifier = {
+		    factor = 1.8
+		    ROOT = { dip = 5 }
+		}
+        modifier = {
+		    factor = 2.0
+		    ROOT = { dip = 6 }
+		}
+
+	    #HEIR STATS
+		modifier = {
+		    factor = 0.75
+		    ROOT = { heir_dip = 0 }
+		}
+        modifier = {
+		    factor = 0.8
+		    ROOT = { heir_dip = 1 }
+		}
+        modifier = {
+		    factor = 0.9
+		    ROOT = { heir_dip 2 }
+		}
+        modifier = {
+		    factor = 1.0
+		    ROOT = { heir_dip = 3 }
+		}
+        modifier = {
+		    factor = 1.4
+		    ROOT = { heir_dip = 4 }
+		}
+        modifier = {
+		    factor = 1.8
+		    ROOT = { heir_dip = 5 }
+		}
+        modifier = {
+		    factor = 2.0
+		    ROOT = { heir_dip = 6 }
+		}
+
+		#CONSORT STATS
+        modifier = {
+		    factor = 0.85
+		    ROOT = { consort_dip = 0 }
+		}
+        modifier = {
+		    factor = 0.85
+		    ROOT = { consort_dip = 1 }
+		}
+        modifier = {
+		    factor = 0.9
+		    ROOT = { consort_dip = 2 }
+		}
+        modifier = {
+		    factor = 1.0
+		    ROOT = { consort_dip = 3 }
+		}
+        modifier = {
+		    factor = 1.1
+		    ROOT = { consort_dip = 4 }
+		}
+        modifier = {
+		    factor = 1.15
+		    ROOT = { consort_dip = 5 }
+		}
+        modifier = {
+		    factor = 1.2
+		    ROOT = { consort_dip = 6 }
+		}
+
+		#POTENTIAl
+        modifier = {
+			factor = 1.5
+			ROOT = { is_emperor = yes }
+		}
+		modifier = {
+			factor = 1.15
+			calc_true_if = {
+			    all_country = { is_subject_of = ROOT }
+			    amount = 2
+			}
+		}
+		modifier = {
+			factor = 1.25
+            calc_true_if = {
+			    all_country = { is_subject_of = ROOT }
+			    amount = 3
+			}
+		}
+		modifier = {
+			factor = 1.35
+            calc_true_if = {
+			    all_country = { is_subject_of = ROOT }
+			    amount = 4
+			}
+		}
+	}
+}
