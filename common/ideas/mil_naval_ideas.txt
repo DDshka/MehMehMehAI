@@ -35,19 +35,33 @@ naval_ideas = {
 	}
 
 	ai_will_do = {
-		factor = 0.0
+		factor = 1.0
+
 		#LIMIT
 		modifier = {
 			factor = 0
-			is_tribal = yes
+			ROOT = {
+		        OR = {
+		            is_tribal = yes
+
+		            NOT = { num_of_ports = 3 }
+		            NOT = { num_of_heavy_ship = 10 }
+		        }
+		    }
 		}
-		modifier = {
-			factor = 0.5
-			NOT = { num_of_ports = 20 }
+
+        #PERSONALITY
+        modifier = {
+		    factor = 1.2
+		    ROOT = { personality = ai_militarist }
 		}
-		modifier = {
-			factor = 0.8
-			NOT = { num_of_ports = 10 }
+        modifier = {
+		    factor = 1.05
+		    ROOT = { personality = ai_capitalist }
+		}
+        modifier = {
+		    factor = 1.1
+		    ROOT = { personality = ai_colonialist }
 		}
 
 		#RULER STATS
@@ -110,22 +124,46 @@ naval_ideas = {
 
 		#POTENTIAl
 		modifier = {
-			factor = 3.0
-			is_colonial_nation = yes
+		    factor = 1.1
+		    ROOT = { num_of_heavy_ship = 50 }
+		}
+        modifier = {
+		    factor = 1.05
+		    ROOT = { num_of_ports = 50 }
 		}
 		modifier = {
-			factor = 3.5
-			ROOT ={
+			factor = 1.25
+			ROOT = { is_colonial_nation = yes }
+		}
+		modifier = {
+			factor = 1.1
+			ROOT = {
 				capital_scope = {
 					is_island = yes
 				}
 			}
 		}
 
-		#TAG
-		modifier = {
-			factor = 4.5
-			xorme_nation_with_strong_navy_trade_potential_trigger = yes
+		#IDEAS
+        modifier = {
+		    factor = 1.3
+		    ROOT = { has_idea_group = economic_ideas }
+		}
+        modifier = {
+		    factor = 1.2
+		    ROOT = { has_idea_group = expansion_ideas }
+		}
+        modifier = {
+		    factor = 1.1
+		    ROOT = { has_idea_group = humanist_ideas }
+		}
+        modifier = {
+		    factor = 1.35
+		    ROOT = { has_idea_group = exploration_ideas }
+		}
+        modifier = {
+		    factor = 1.05
+		    ROOT = { has_idea_group = maritime_ideas }
 		}
 	}
 }

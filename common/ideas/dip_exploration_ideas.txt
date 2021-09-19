@@ -71,7 +71,7 @@ exploration_ideas = {
 			}
 		}
 		modifier = {
-		    factor = 0.5
+		    factor = 0.66
 		    is_year = 1550
 		}
 
