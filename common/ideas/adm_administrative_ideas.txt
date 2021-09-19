@@ -64,93 +64,61 @@ administrative_ideas = {
 		}
 
         #RULER STATS
-		modifier = {
-		    factor = 0.2
-		    ROOT = { adm = 0 }
+        modifier = {
+		    factor = 0.5
+		    ROOT = { mehmehmehai_weak_adm_ruler_trigger = yes }
 		}
         modifier = {
-		    factor = 0.3
-		    ROOT = { adm = 1 }
-		}
-        modifier = {
-		    factor = 0.6
-		    ROOT = { adm = 2 }
-		}
-        modifier = {
-		    factor = 1.0
-		    ROOT = { adm = 3 }
-		}
-        modifier = {
-		    factor = 1.4
-		    ROOT = { adm = 4 }
-		}
-        modifier = {
-		    factor = 1.8
-		    ROOT = { adm = 5 }
-		}
-        modifier = {
-		    factor = 2.0
-		    ROOT = { adm = 6 }
+		    factor = 1.5
+		    ROOT = { mehmehmehai_strong_adm_ruler_trigger = yes }
 		}
 
-	    #HEIR STATS
-		modifier = {
-		    factor = 0.75
-		    ROOT = { heir_adm = 0 }
+		#HEIR STATS
+        modifier = {
+		    factor = 0.85
+		    ROOT = {
+		        AND = {
+		            has_heir = yes
+		            mehmehmehai_weak_adm_heir_trigger = yes
+		        }
+		    }
 		}
         modifier = {
-		    factor = 0.8
-		    ROOT = { heir_adm = 1 }
-		}
-        modifier = {
-		    factor = 0.9
-		    ROOT = { heir_adm 2 }
-		}
-        modifier = {
-		    factor = 1.0
-		    ROOT = { heir_adm = 3 }
-		}
-        modifier = {
-		    factor = 1.4
-		    ROOT = { heir_adm = 4 }
-		}
-        modifier = {
-		    factor = 1.8
-		    ROOT = { heir_adm = 5 }
-		}
-        modifier = {
-		    factor = 2.0
-		    ROOT = { heir_adm = 6 }
+		    factor = 1.5
+		    ROOT = {
+		        AND = {
+		            has_heir = yes
+		            mehmehmehai_strong_adm_heir_trigger = yes
+		        }
+            }
 		}
 
-		#CONSORT STATS
+        #CONSORT STATS
         modifier = {
 		    factor = 0.85
-		    ROOT = { consort_adm = 0 }
-		}
-        modifier = {
-		    factor = 0.85
-		    ROOT = { consort_adm = 1 }
-		}
-        modifier = {
-		    factor = 0.9
-		    ROOT = { consort_adm = 2 }
-		}
-        modifier = {
-		    factor = 1.0
-		    ROOT = { consort_adm = 3 }
-		}
-        modifier = {
-		    factor = 1.1
-		    ROOT = { consort_adm = 4 }
+		    ROOT = {
+		        AND = {
+		             OR = {
+                        has_heir = no
+		                NOT = { heir_age = 12 }
+		            }
+		            has_consort = yes
+		            mehmehmehai_weak_adm_consort_trigger = yes
+		        }
+		    }
 		}
         modifier = {
 		    factor = 1.15
-		    ROOT = { consort_adm = 5 }
-		}
-        modifier = {
-		    factor = 1.2
-		    ROOT = { consort_adm = 6 }
+		    ROOT = {
+		        AND = {
+		            OR = {
+                        has_heir = no
+		                NOT = { heir_age = 12 }
+		            }
+		            has_consort = yes
+		            mehmehmehai_strong_adm_consort_trigger = yes
+		        }
+            }
 		}
 
 		#POTENTIAL

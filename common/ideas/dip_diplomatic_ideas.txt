@@ -57,93 +57,61 @@ diplomatic_ideas = {
 		}
 
         #RULER STATS
-		modifier = {
-		    factor = 0.2
-		    ROOT = { dip = 0 }
+        modifier = {
+		    factor = 0.5
+		    ROOT = { mehmehmehai_weak_dip_ruler_trigger = yes }
 		}
         modifier = {
-		    factor = 0.3
-		    ROOT = { dip = 1 }
-		}
-        modifier = {
-		    factor = 0.6
-		    ROOT = { dip = 2 }
-		}
-        modifier = {
-		    factor = 1.0
-		    ROOT = { dip = 3 }
-		}
-        modifier = {
-		    factor = 1.4
-		    ROOT = { dip = 4 }
-		}
-        modifier = {
-		    factor = 1.8
-		    ROOT = { dip = 5 }
-		}
-        modifier = {
-		    factor = 2.0
-		    ROOT = { dip = 6 }
+		    factor = 1.5
+		    ROOT = { mehmehmehai_strong_dip_ruler_trigger = yes }
 		}
 
-	    #HEIR STATS
-		modifier = {
-		    factor = 0.75
-		    ROOT = { heir_dip = 0 }
+		#HEIR STATS
+        modifier = {
+		    factor = 0.85
+		    ROOT = {
+		        AND = {
+		            has_heir = yes
+		            mehmehmehai_weak_dip_heir_trigger = yes
+		        }
+		    }
 		}
         modifier = {
-		    factor = 0.8
-		    ROOT = { heir_dip = 1 }
-		}
-        modifier = {
-		    factor = 0.9
-		    ROOT = { heir_dip 2 }
-		}
-        modifier = {
-		    factor = 1.0
-		    ROOT = { heir_dip = 3 }
-		}
-        modifier = {
-		    factor = 1.4
-		    ROOT = { heir_dip = 4 }
-		}
-        modifier = {
-		    factor = 1.8
-		    ROOT = { heir_dip = 5 }
-		}
-        modifier = {
-		    factor = 2.0
-		    ROOT = { heir_dip = 6 }
+		    factor = 1.5
+		    ROOT = {
+		        AND = {
+		            has_heir = yes
+		            mehmehmehai_strong_dip_heir_trigger = yes
+		        }
+            }
 		}
 
-		#CONSORT STATS
+        #CONSORT STATS
         modifier = {
 		    factor = 0.85
-		    ROOT = { consort_dip = 0 }
-		}
-        modifier = {
-		    factor = 0.85
-		    ROOT = { consort_dip = 1 }
-		}
-        modifier = {
-		    factor = 0.9
-		    ROOT = { consort_dip = 2 }
-		}
-        modifier = {
-		    factor = 1.0
-		    ROOT = { consort_dip = 3 }
-		}
-        modifier = {
-		    factor = 1.1
-		    ROOT = { consort_dip = 4 }
+		    ROOT = {
+		        AND = {
+		             OR = {
+                        has_heir = no
+		                NOT = { heir_age = 12 }
+		            }
+		            has_consort = yes
+		            mehmehmehai_weak_dip_consort_trigger = yes
+		        }
+		    }
 		}
         modifier = {
 		    factor = 1.15
-		    ROOT = { consort_dip = 5 }
-		}
-        modifier = {
-		    factor = 1.2
-		    ROOT = { consort_dip = 6 }
+		    ROOT = {
+		        AND = {
+		            OR = {
+                        has_heir = no
+		                NOT = { heir_age = 12 }
+		            }
+		            has_consort = yes
+		            mehmehmehai_strong_dip_consort_trigger = yes
+		        }
+            }
 		}
 
 		#POTENTIAL

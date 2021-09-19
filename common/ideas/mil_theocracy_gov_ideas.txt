@@ -63,63 +63,33 @@ theocracy_gov_ideas = {
 		}
 
 		#RULER STATS
-		modifier = {
-		    factor = 0.2
-		    ROOT = { mil = 0 }
+        modifier = {
+		    factor = 0.5
+		    ROOT = { mehmehmehai_weak_mil_ruler_trigger = yes }
 		}
         modifier = {
-		    factor = 0.3
-		    ROOT = { mil = 1 }
-		}
-        modifier = {
-		    factor = 0.6
-		    ROOT = { mil = 2 }
-		}
-        modifier = {
-		    factor = 1.0
-		    ROOT = { mil = 3 }
-		}
-        modifier = {
-		    factor = 1.4
-		    ROOT = { mil = 4 }
-		}
-        modifier = {
-		    factor = 1.8
-		    ROOT = { mil = 5 }
-		}
-        modifier = {
-		    factor = 2.0
-		    ROOT = { mil = 6 }
+		    factor = 1.5
+		    ROOT = { mehmehmehai_strong_mil_ruler_trigger = yes }
 		}
 
-	    #HEIR STATS
-		modifier = {
-		    factor = 0.75
-		    ROOT = { heir_mil = 0 }
+		#HEIR STATS
+        modifier = {
+		    factor = 0.85
+		    ROOT = {
+		        AND = {
+		            has_heir = yes
+		            mehmehmehai_weak_mil_heir_trigger = yes
+		        }
+		    }
 		}
         modifier = {
-		    factor = 0.8
-		    ROOT = { heir_mil = 1 }
-		}
-        modifier = {
-		    factor = 0.9
-		    ROOT = { heir_mil = 2 }
-		}
-        modifier = {
-		    factor = 1.0
-		    ROOT = { heir_mil = 3 }
-		}
-        modifier = {
-		    factor = 1.4
-		    ROOT = { heir_mil = 4 }
-		}
-        modifier = {
-		    factor = 1.8
-		    ROOT = { heir_mil = 5 }
-		}
-        modifier = {
-		    factor = 2.0
-		    ROOT = { heir_mil = 6 }
+		    factor = 1.5
+		    ROOT = {
+		        AND = {
+		            has_heir = yes
+		            mehmehmehai_strong_mil_heir_trigger = yes
+		        }
+            }
 		}
 
 		#POTENTIAL
