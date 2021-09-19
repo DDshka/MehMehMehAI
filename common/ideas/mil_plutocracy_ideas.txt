@@ -1,0 +1,177 @@
+plutocracy_ideas = {
+	category = MIL
+
+	bonus = {
+		global_institution_spread = 0.10
+		burghers_loyalty_modifier = 0.1
+		vaisyas_loyalty_modifier = 0.1
+	}
+
+	trigger = {
+		ROOT = { has_government_attribute = enables_plutocratic_idea_group }
+	}
+
+	tradition_of_payment = {
+		mercenary_manpower = 0.10
+		mercenary_discipline = 0.025
+	}
+	abolished_serfdom = {
+		land_morale = 0.10
+	}
+	bill_of_rights = {
+		global_unrest = -2
+	}
+	free_merchants = {
+		merchants = 1
+	}
+	free_subjects = {
+		global_trade_goods_size_modifier = 0.1
+	}
+	free_cities = {
+		caravan_power = 0.25
+	}
+	emancipation = {
+		manpower_recovery_speed = 0.2
+	}
+
+	ai_will_do = {
+		factor = 2.0
+
+        #PERSONALITY
+		modifier = {
+		    factor = 1.5
+		    ROOT = { ruler_has_personality = industrious_personality }
+		}
+        modifier = {
+		    factor = 1.5
+		    ROOT = { ruler_has_personality = inspiring_leader_personality }
+		}
+		modifier = {
+		    factor = 1.5
+		    ROOT = { ruler_has_personality = righteous_personality }
+		}
+		modifier = {
+		    factor = 1.35
+		    ROOT = { personality = ai_militarist }
+		}
+        modifier = {
+		    factor = 1.15
+		    ROOT = { personality = ai_diplomat }
+		}
+        modifier = {
+		    factor = 1.5
+		    ROOT = { personality = ai_capitalist }
+		}
+		modifier = {
+		    factor = 1.15
+		    ROOT = { personality = ai_colonialist }
+		}
+
+		#RULER STATS
+        modifier = {
+		    factor = 0.5
+		    ROOT = { mehmehmehai_weak_mil_ruler_trigger = yes }
+		}
+        modifier = {
+		    factor = 1.5
+		    ROOT = { mehmehmehai_strong_mil_ruler_trigger = yes }
+		}
+
+		#HEIR STATS
+        modifier = {
+		    factor = 0.85
+		    ROOT = {
+		        AND = {
+		            has_heir = yes
+		            mehmehmehai_weak_mil_heir_trigger = yes
+		        }
+		    }
+		}
+        modifier = {
+		    factor = 1.5
+		    ROOT = {
+		        AND = {
+		            has_heir = yes
+		            mehmehmehai_strong_mil_heir_trigger = yes
+		        }
+            }
+		}
+
+        #CONSORT STATS
+        modifier = {
+		    factor = 0.85
+		    ROOT = {
+		        AND = {
+		             OR = {
+                        has_heir = no
+		                NOT = { heir_age = 12 }
+		            }
+		            has_consort = yes
+		            mehmehmehai_weak_mil_consort_trigger = yes
+		        }
+		    }
+		}
+        modifier = {
+		    factor = 1.15
+		    ROOT = {
+		        AND = {
+		            OR = {
+                        has_heir = no
+		                NOT = { heir_age = 12 }
+		            }
+		            has_consort = yes
+		            mehmehmehai_strong_mil_consort_trigger = yes
+		        }
+            }
+		}
+
+        #POTENTIAL
+		modifier = {
+		    factor = 1.5
+            ROOT = {
+                has_global_modifier_value = {
+                    which = caravan_power
+                    value = 0.1
+                }
+            }
+		}
+		modifier = {
+		    factor = 1.8
+		    ROOT = {
+                has_global_modifier_value = {
+                    which = global_trade_goods_size_modifier
+                    value = 0.1
+                }
+		    }
+		}
+		modifier = {
+		    factor = 2.0
+		    mehmehmehai_strong_goods_produced_country_trigger = yes
+		}
+        modifier = {
+		    factor = 1.4
+		    mehmehmehai_normal_goods_produced_country_trigger = yes
+		}
+		modifier = {
+		    factor = 1.35
+		    OR = {
+		        xorme_medium_quality_trade_goods_trigger = yes
+		        xorme_high_quality_trade_goods_trigger = yes
+		    }
+		}
+
+        #IDEAS
+		modifier = {
+			factor = 1.15
+			ROOT = { has_idea_group = administrative_ideas }
+		}
+		modifier = {
+			factor = 1.4
+			ROOT = { has_idea_group = innovativeness_ideas }
+		}
+		modifier = {
+			factor = 2.0
+			ROOT = { has_idea_group = spy_ideas }
+		}
+	}
+}

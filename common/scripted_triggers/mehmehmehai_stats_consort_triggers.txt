@@ -1,0 +1,23 @@
+mehmehmehai_weak_adm_consort_trigger = {
+    NOT = { consort_adm = 2 }
+}
+
+mehmehmehai_strong_adm_consort_trigger = {
+    consort_adm = 5
+}
+
+mehmehmehai_weak_dip_consort_trigger = {
+    NOT = { consort_dip = 2 }
+}
+
+mehmehmehai_strong_dip_consort_trigger = {
+    consort_dip = 5
+}
+
+mehmehmehai_weak_mil_consort_trigger = {
+    NOT = { consort_mil = 2 }
+}
+
+mehmehmehai_strong_mil_consort_trigger = {
+    consort_mil = 5
+}

@@ -1,0 +1,165 @@
+maritime_ideas = {
+	category = DIP
+
+	trigger = {
+		primitives = no
+	}
+
+	bonus = {
+		sea_repair = yes
+	}
+
+	merchant_traditions = {
+		naval_tradition_from_trade = 1.0
+	}
+	merchant_marine = {
+		global_sailors_modifier = 0.5
+	}
+	sheltered_ports = {
+		global_ship_repair = 0.1
+		sailor_maintenance_modifer = -0.1
+	}
+	grand_navy = {
+		naval_forcelimit_modifier = 0.5
+	}
+	ships_penny = {
+		global_ship_cost = -0.1
+	}
+	sea_hawks = {
+		free_leader_pool = 1
+		admiral_cost = -0.25
+	}
+	naval_fighting_instruction = {
+		blockade_efficiency = 0.5
+		privateer_efficiency = 0.25
+	}
+
+	ai_will_do = {
+		factor = 1.0
+
+		#LIMIT
+		modifier = {
+		    factor = 0
+		    ROOT = {
+		        OR = {
+		            is_tribal = yes
+
+		            NOT = { num_of_ports = 3 }
+		            NOT = { num_of_light_ship = 9 }
+		        }
+		    }
+		}
+
+        #PERSONALITY
+        modifier = {
+		    factor = 1.05
+		    ROOT = { personality = ai_diplomat }
+		}
+        modifier = {
+		    factor = 1.2
+		    ROOT = { personality = ai_capitalist }
+		}
+        modifier = {
+		    factor = 1.25
+		    ROOT = { personality = ai_colonialist }
+		}
+
+		#RULER STATS
+        modifier = {
+		    factor = 0.5
+		    ROOT = { mehmehmehai_weak_dip_ruler_trigger = yes }
+		}
+        modifier = {
+		    factor = 1.5
+		    ROOT = { mehmehmehai_strong_dip_ruler_trigger = yes }
+		}
+
+		#HEIR STATS
+        modifier = {
+		    factor = 0.85
+		    ROOT = {
+		        AND = {
+		            has_heir = yes
+		            mehmehmehai_weak_dip_heir_trigger = yes
+		        }
+		    }
+		}
+        modifier = {
+		    factor = 1.5
+		    ROOT = {
+		        AND = {
+		            has_heir = yes
+		            mehmehmehai_strong_dip_heir_trigger = yes
+		        }
+            }
+		}
+
+        #CONSORT STATS
+        modifier = {
+		    factor = 0.85
+		    ROOT = {
+		        AND = {
+		             OR = {
+                        has_heir = no
+		                NOT = { heir_age = 12 }
+		            }
+		            has_consort = yes
+		            mehmehmehai_weak_dip_consort_trigger = yes
+		        }
+		    }
+		}
+        modifier = {
+		    factor = 1.15
+		    ROOT = {
+		        AND = {
+		            OR = {
+                        has_heir = no
+		                NOT = { heir_age = 12 }
+		            }
+		            has_consort = yes
+		            mehmehmehai_strong_dip_consort_trigger = yes
+		        }
+            }
+		}
+
+		#POTENTIAL
+		modifier = {
+		    factor = 1.5
+		    ROOT = { is_colonial_nation = yes }
+		}
+		modifier = {
+		    factor = 1.1
+		    ROOT = { num_of_light_ship = 100 }
+		}
+		modifier = {
+		    factor = 1.05
+		    ROOT = { num_of_ports = 50 }
+		}
+
+		#IDEAS
+        modifier = {
+		    factor = 1.25
+		    ROOT = { has_idea_group = expansion_ideas }
+		}
+		modifier = {
+		    factor = 1.35
+		    ROOT = { has_idea_group = innovativeness_ideas }
+		}
+        modifier = {
+		    factor = 1.45
+		    ROOT = { has_idea_group = religious_ideas }
+		}
+        modifier = {
+		    factor = 1.1
+		    ROOT = { has_idea_group = naval_ideas }
+		}
+        modifier = {
+		    factor = 1.3
+		    ROOT = { has_idea_group = offensive_ideas }
+		}
+        modifier = {
+		    factor = 1.5
+		    ROOT = { has_idea_group = quality_ideas }
+		}
+	}
+}

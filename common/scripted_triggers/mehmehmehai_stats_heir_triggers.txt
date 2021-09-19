@@ -1,0 +1,23 @@
+mehmehmehai_weak_adm_heir_trigger = {
+    NOT = { heir_adm = 2 }
+}
+
+mehmehmehai_strong_adm_heir_trigger = {
+    heir_adm = 5
+}
+
+mehmehmehai_weak_dip_heir_trigger = {
+    NOT = { heir_dip = 2 }
+}
+
+mehmehmehai_strong_dip_heir_trigger = {
+    heir_dip = 5
+}
+
+mehmehmehai_weak_mil_heir_trigger = {
+    NOT = { heir_mil = 2 }
+}
+
+mehmehmehai_strong_mil_heir_trigger = {
+    heir_mil = 5
+}

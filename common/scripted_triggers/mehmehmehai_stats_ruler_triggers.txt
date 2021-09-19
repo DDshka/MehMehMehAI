@@ -1,0 +1,41 @@
+mehmehmehai_weak_adm_ruler_trigger = {
+    NOT = { adm = 2 }
+}
+
+mehmehmehai_strong_adm_ruler_trigger = {
+    adm = 5
+}
+
+mehmehmehai_weak_dip_ruler_trigger = {
+    NOT = { dip = 2 }
+}
+
+mehmehmehai_strong_dip_ruler_trigger = {
+    dip = 5
+}
+
+mehmehmehai_weak_mil_ruler_trigger = {
+    NOT = { mil = 2 }
+}
+
+mehmehmehai_strong_mil_ruler_trigger = {
+    mil = 5
+}
+
+mehmehmehai_strong_ruler_trigger = {
+    AND = {
+        adm = 5
+        dip = 5
+        mil = 5
+    }
+}
+
+mehmehmehai_weak_ruler_trigger = {
+    NOT = {
+        AND = {
+            adm = 2
+            dip = 2
+            mil = 2
+        }
+    }
+}

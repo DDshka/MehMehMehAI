@@ -1,0 +1,181 @@
+aristocracy_ideas = {
+	category = MIL
+
+	bonus = {
+		leader_siege = 1
+		nobles_loyalty_modifier = 0.1
+	}
+
+	trigger = {
+		ROOT = {
+			OR = {
+				has_government_attribute = enables_aristocratic_idea_group
+				AND = {
+					government = theocracy
+					NOT = {
+						religion_group = christian
+					}
+				}
+				government = tribal
+			}
+			NOT = { has_reform = steppe_horde }
+		}
+	}
+
+	noble_knights = {
+		cavalry_power = 0.10
+		cavalry_cost = -0.10
+	}
+	military_traditions = {
+		mil_tech_cost_modifier  = -0.1
+	}
+	local_nobility = {
+		global_autonomy = -0.025
+		yearly_absolutism = 0.5
+	}
+	serfdom = {
+		global_manpower_modifier = 0.33
+	}
+	noble_officers = {
+		army_tradition_decay = -0.01
+		navy_tradition_decay = -0.01
+	}
+	international_nobility = {
+		diplomats = 1
+		free_leader_pool = 1
+	}
+	noble_resilience = {
+		mercenary_manpower = 0.20
+	}
+
+	ai_will_do = {
+		factor = 1.0
+
+		#PERSONALITY
+		modifier = {
+		    factor = 1.15
+		    ROOT = { personality = ai_militarist }
+		}
+        modifier = {
+		    factor = 0.9
+		    ROOT = { personality = ai_diplomat }
+		}
+        modifier = {
+		    factor = 0.75
+		    ROOT = { personality = ai_capitalist }
+		}
+		modifier = {
+		    factor = 1.1
+		    ROOT = { personality = ai_colonialist }
+		}
+
+		#RULER STATS
+        modifier = {
+		    factor = 0.5
+		    ROOT = { mehmehmehai_weak_mil_ruler_trigger = yes }
+		}
+        modifier = {
+		    factor = 1.5
+		    ROOT = { mehmehmehai_strong_mil_ruler_trigger = yes }
+		}
+
+		#HEIR STATS
+        modifier = {
+		    factor = 0.85
+		    ROOT = {
+		        AND = {
+		            has_heir = yes
+		            mehmehmehai_weak_mil_heir_trigger = yes
+		        }
+		    }
+		}
+        modifier = {
+		    factor = 1.5
+		    ROOT = {
+		        AND = {
+		            has_heir = yes
+		            mehmehmehai_strong_mil_heir_trigger = yes
+		        }
+            }
+		}
+
+        #CONSORT STATS
+        modifier = {
+		    factor = 0.85
+		    ROOT = {
+		        AND = {
+		             OR = {
+                        has_heir = no
+		                NOT = { heir_age = 12 }
+		            }
+		            has_consort = yes
+		            mehmehmehai_weak_mil_consort_trigger = yes
+		        }
+		    }
+		}
+        modifier = {
+		    factor = 1.15
+		    ROOT = {
+		        AND = {
+		            OR = {
+                        has_heir = no
+		                NOT = { heir_age = 12 }
+		            }
+		            has_consort = yes
+		            mehmehmehai_strong_mil_consort_trigger = yes
+		        }
+            }
+		}
+
+		#POTENTIAL
+		modifier = {
+		    factor = 1.35
+		    ROOT = { has_estate = estate_cossacks }
+		}
+		modifier = {
+		    factor = 1.5
+            ROOT = {
+                has_global_modifier_value = {
+                    which = cavalry_power
+                    value = 0.1
+                }
+            }
+		}
+		modifier = {
+		    factor = 1.35
+		    ROOT = {
+                has_global_modifier_value = {
+                    which = cavalry_cost
+                    value = -0.1
+                }
+		    }
+		}
+		modifier = {
+		    factor = 2.0
+		    mehmehmehai_strong_cavalry_country_trigger = yes
+		}
+
+		#IDEAS
+		modifier = {
+			factor = 1.6
+			ROOT = { has_idea_group = economic_ideas }
+		}
+		modifier = {
+			factor = 1.4
+			ROOT = { has_idea_group = innovativeness_ideas }
+		}
+		modifier = {
+			factor = 2.0
+			ROOT = {
+			    AND = {
+			        has_idea_group = spy_ideas
+                    has_global_modifier_value = {
+                        which = cavalry_power
+                        value = 0.15
+                    }
+			    }
+
+            }
+		}
+	}
+}

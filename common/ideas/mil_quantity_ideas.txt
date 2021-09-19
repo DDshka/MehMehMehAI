@@ -1,0 +1,199 @@
+quantity_ideas = {
+	category = MIL
+
+	bonus = {
+		land_forcelimit_modifier  = 0.50
+	}
+	mass_army = {
+		global_manpower_modifier = 0.50
+	}
+	the_young_can_serve = {
+		manpower_recovery_speed = 0.20
+	}
+	enforced_service = {
+		global_regiment_cost = -0.1
+	}
+	the_old_and_infirm = {
+		land_maintenance_modifier = -0.05
+	}
+	camp_followers = {
+		global_supply_limit_modifier = 0.33
+	}
+	garrison_conscription = {
+		garrison_size = 0.25
+	}
+	expanded_supply_trains = {
+		land_attrition = -0.1
+	}
+
+	ai_will_do = {
+		factor = 1.0
+
+		#LIMIT
+		modifier = {
+			factor = 0.5
+			total_development = 1000
+		}
+		modifier = {
+			factor = 0.8
+			is_great_power = yes
+		}
+
+		#PERSONALITY
+		modifier = {
+			factor = 1.4
+			ROOT = { ruler_has_good_mil_personality = yes }
+		}
+		modifier = {
+		    factor = 1.5
+		    ROOT = { personality = ai_militarist }
+		}
+        modifier = {
+		    factor = 0.5
+		    ROOT = { personality = ai_diplomat }
+		}
+        modifier = {
+		    factor = 1.2
+		    ROOT = { personality = ai_capitalist }
+		}
+		modifier = {
+		    factor = 1.5
+		    ROOT = { personality = ai_colonialist }
+		}
+
+		#RULER STATS
+        modifier = {
+		    factor = 0.5
+		    ROOT = { mehmehmehai_weak_mil_ruler_trigger = yes }
+		}
+        modifier = {
+		    factor = 1.5
+		    ROOT = { mehmehmehai_strong_mil_ruler_trigger = yes }
+		}
+
+		#HEIR STATS
+        modifier = {
+		    factor = 0.85
+		    ROOT = {
+		        AND = {
+		            has_heir = yes
+		            mehmehmehai_weak_mil_heir_trigger = yes
+		        }
+		    }
+		}
+        modifier = {
+		    factor = 1.5
+		    ROOT = {
+		        AND = {
+		            has_heir = yes
+		            mehmehmehai_strong_mil_heir_trigger = yes
+		        }
+            }
+		}
+
+        #CONSORT STATS
+        modifier = {
+		    factor = 0.85
+		    ROOT = {
+		        AND = {
+		             OR = {
+                        has_heir = no
+		                NOT = { heir_age = 12 }
+		            }
+		            has_consort = yes
+		            mehmehmehai_weak_mil_consort_trigger = yes
+		        }
+		    }
+		}
+        modifier = {
+		    factor = 1.15
+		    ROOT = {
+		        AND = {
+		            OR = {
+                        has_heir = no
+		                NOT = { heir_age = 12 }
+		            }
+		            has_consort = yes
+		            mehmehmehai_strong_mil_consort_trigger = yes
+		        }
+            }
+		}
+
+		#DEVELOPMENT
+		modifier = {
+			factor = 2.0
+			ROOT = {
+                AND = {
+                    NOT = { total_development = 250 }
+                    monthly_income = 30
+                    current_income_balance = 10
+                }
+			}
+		}
+		modifier = {
+			factor = 1.5
+			ROOT = {
+                AND = {
+                    NOT = { total_development = 500 }
+                    monthly_income = 45
+                    current_income_balance = 13
+                }
+			}
+		}
+		modifier = {
+			factor = 1.25
+			ROOT = {
+                AND = {
+                    NOT = { total_development = 750 }
+                    monthly_income = 60
+                    current_income_balance = 18
+                }
+			}
+		}
+
+		#POTENTIAL
+        modifier = {
+		    factor = 1.2
+		    ROOT = { is_subject = yes }
+		}
+		modifier = {
+			factor = 1.5
+			technology_group = chinese
+		}
+		modifier = {
+		    factor = 1.4
+		    calc_true_if = {
+		        all_country = {
+                    is_rival = ROOT
+    	        }
+    	        amount = 4
+		    }
+		}
+		modifier = {
+		    factor = 1.5
+		    ROOT = { manpower_percentage = 0.1 }
+		}
+
+		#IDEAS
+		modifier = {
+			factor = 2.0
+			has_idea_group = trade_ideas
+		}
+		modifier = {
+			factor = 1.5
+			has_idea_group = exploration_ideas
+		}
+		modifier = {
+			factor = 1.4
+			has_idea_group = influence_ideas
+		}
+		modifier = {
+			factor = 1.5
+			has_idea_group = economic_ideas
+		}
+        modifier = {
+			factor = 1.5
+			has_idea_group = religious_ideas
+		}
+	}
+}

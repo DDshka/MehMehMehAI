@@ -1,0 +1,161 @@
+spy_ideas = {
+	category = DIP
+
+	bonus = {
+		rebel_support_efficiency = 0.50
+	}
+
+	efficient_spies = {
+		spy_offence = 0.5
+		advisor_cost = -0.10
+	}
+
+	agent_training = {
+		diplomats = 1
+	}
+
+	vetting = {
+		global_spy_defence = 0.33
+	}
+
+	state_propaganda = {
+		ae_impact = -0.2
+	}
+
+	claim_fabrication = {
+		fabricate_claims_cost = -0.25
+		can_fabricate_for_vassals = yes
+	}
+
+	privateers = {
+		embargo_efficiency = 0.25
+		privateer_efficiency = 0.33
+	}
+	audit_checks = {
+		yearly_corruption = -0.1
+	}
+
+	ai_will_do = {
+		factor = 1.0
+
+		#PERSONALITY
+		modifier = {
+			factor = 1.5
+			ruler_has_personality = intricate_web_weaver_personality
+		}
+		modifier = {
+			factor = 1.3
+			ruler_has_personality = secretive_personality
+		}
+        modifier = {
+		    factor = 1.25
+		    ROOT = { personality = ai_diplomat }
+		}
+        modifier = {
+		    factor = 1.05
+		    ROOT = { personality = ai_militarist }
+		}
+        modifier = {
+		    factor = 0.9
+		    ROOT = { personality = ai_capitalist }
+		}
+
+		#RULER STATS
+        modifier = {
+		    factor = 0.5
+		    ROOT = { mehmehmehai_weak_dip_ruler_trigger = yes }
+		}
+        modifier = {
+		    factor = 1.5
+		    ROOT = { mehmehmehai_strong_dip_ruler_trigger = yes }
+		}
+
+		#HEIR STATS
+        modifier = {
+		    factor = 0.85
+		    ROOT = {
+		        AND = {
+		            has_heir = yes
+		            mehmehmehai_weak_dip_heir_trigger = yes
+		        }
+		    }
+		}
+        modifier = {
+		    factor = 1.5
+		    ROOT = {
+		        AND = {
+		            has_heir = yes
+		            mehmehmehai_strong_dip_heir_trigger = yes
+		        }
+            }
+		}
+
+        #CONSORT STATS
+        modifier = {
+		    factor = 0.85
+		    ROOT = {
+		        AND = {
+		             OR = {
+                        has_heir = no
+		                NOT = { heir_age = 12 }
+		            }
+		            has_consort = yes
+		            mehmehmehai_weak_dip_consort_trigger = yes
+		        }
+		    }
+		}
+        modifier = {
+		    factor = 1.15
+		    ROOT = {
+		        AND = {
+		            OR = {
+                        has_heir = no
+		                NOT = { heir_age = 12 }
+		            }
+		            has_consort = yes
+		            mehmehmehai_strong_dip_consort_trigger = yes
+		        }
+            }
+		}
+
+		#POTENTIAL
+		modifier = {
+			factor = 1.6
+			is_part_of_hre = yes
+		}
+		modifier = {
+		    factor = 1.05
+		    ROOT = { current_income_balance = 10 }
+		}
+
+		#IDEAS
+        modifier = {
+			factor = 1.6
+			ROOT = { has_idea_group = economic_ideas }
+		}
+		modifier = {
+			factor = 1.8
+			ROOT = { has_idea_group = plutocracy_ideas }
+		}
+		modifier = {
+		    factor = 1.5
+		    ROOT = { has_idea_group = humanist_ideas }
+		}
+        modifier = {
+		    factor = 2.0
+		    ROOT = { has_idea_group = aristocratic_ideas }
+		}
+        modifier = {
+		    factor = 2.0
+		    ROOT = { has_idea_group = theocracy_gov_ideas }
+		}
+        modifier = {
+		    factor = 2.0
+		    ROOT = { has_idea_group = horde_ideas }
+		}
+		modifier = {
+		    factor = 1.2
+		    ROOT = { has_idea_group = defensive_ideas }
+		}
+	}
+}

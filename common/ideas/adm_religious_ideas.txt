@@ -1,0 +1,230 @@
+religious_ideas = {
+	category = ADM
+
+	bonus = {
+		culture_conversion_cost = -0.25
+		brahmins_hindu_loyalty_modifier = 0.1
+		church_loyalty_modifier = 0.1
+	}
+
+	missionary_schools = {
+		missionaries = 1
+	}
+	church_attendance_duty = {
+		stability_cost_modifier = -0.25
+	}
+	divine_supremacy = {
+		global_missionary_strength = 0.03
+	}
+	devoutness = {
+		tolerance_own = 2
+		papal_influence = 2
+		devotion = 0.5
+		monthly_fervor_increase = 0.25
+		church_power_modifier = 0.1
+	}
+	religious_tradition = {
+		prestige = 1
+	}
+	inquisition = {
+		missionary_maintenance_cost = -0.5
+	}
+	deus_vult = {
+		cb_on_religious_enemies = yes
+	}
+
+	ai_will_do = {
+		factor = 1.0
+
+		#LIMIT
+		modifier = {
+			factor = 0
+			ROOT = {
+			    OR = {
+			        no_religion_penalty = yes
+			        religion = confucianism
+			        has_idea_group = humanist_ideas
+			        ruler_has_personality = sinner_personality
+
+			        has_global_modifier_value = {
+                        which = tolerance_heretic
+                        value = 2.5
+                    }
+
+                    has_global_modifier_value = {
+                        which = tolerance_heathen
+                        value = 2.5
+                    }
+			    }
+			}
+		}
+		modifier = {
+		    factor = 0.5
+		    ROOT = {
+		        religious_unity = 0.96
+		    }
+		}
+
+		#PERSONALITY
+		modifier = {
+			factor = 1.5
+			ruler_has_personality = zealot_personality
+		}
+        modifier = {
+		    factor = 0.9
+		    ROOT = { personality = ai_diplomat }
+		}
+        modifier = {
+		    factor = 1.3
+		    ROOT = { personality = ai_militarist }
+		}
+        modifier = {
+		    factor = 1.3
+		    ROOT = { personality = ai_capitalist }
+		}
+
+		#RULER STATS
+        modifier = {
+		    factor = 0.5
+		    ROOT = { mehmehmehai_weak_adm_ruler_trigger = yes }
+		}
+        modifier = {
+		    factor = 1.5
+		    ROOT = { mehmehmehai_strong_adm_ruler_trigger = yes }
+		}
+
+		#HEIR STATS
+        modifier = {
+		    factor = 0.85
+		    ROOT = {
+		        AND = {
+		            has_heir = yes
+		            mehmehmehai_weak_adm_heir_trigger = yes
+		        }
+		    }
+		}
+        modifier = {
+		    factor = 1.25
+		    ROOT = {
+		        AND = {
+		            has_heir = yes
+		            mehmehmehai_strong_adm_heir_trigger = yes
+		        }
+            }
+		}
+
+        #CONSORT STATS
+        modifier = {
+		    factor = 0.85
+		    ROOT = {
+		        AND = {
+		             OR = {
+                        has_heir = no
+		                NOT = { heir_age = 12 }
+		            }
+		            has_consort = yes
+		            mehmehmehai_weak_adm_consort_trigger = yes
+		        }
+		    }
+		}
+        modifier = {
+		    factor = 1.15
+		    ROOT = {
+		        AND = {
+		            OR = {
+                        has_heir = no
+		                NOT = { heir_age = 12 }
+		            }
+		            has_consort = yes
+		            mehmehmehai_strong_adm_consort_trigger = yes
+		        }
+            }
+		}
+
+		#POTENTIAL
+		modifier = {
+			factor = 1.35
+			NOT = { dominant_religion = ROOT  }
+		}
+		modifier = {
+			factor = 1.25
+			ROOT = { government = theocracy }
+		}
+		modifier = {
+			factor = 1.4
+            any_neighbor_country = {
+                NOT = {
+                    AND = {
+                        OR = {
+                            alliance_with = ROOT
+                            is_subject_of = ROOT
+                        }
+                        religion_group = ROOT
+                        num_of_cities = 10
+                    }
+                }
+            }
+		}
+        modifier = {
+			factor = 1.15
+            any_neighbor_country = {
+                NOT = {
+                    AND = {
+                        OR = {
+                            alliance_with = ROOT
+                            is_subject_of = ROOT
+                        }
+                        religion_group = ROOT
+                        NOT = { religion = ROOT }
+                        num_of_cities = 10
+                    }
+                }
+            }
+		}
+		modifier = {
+		    factor = 1.25
+		    AND = {
+		        ROOT = { is_part_of_hre = true }
+		        OR = {
+                    is_religion_enabled = protestant
+                    is_religion_enabled = reformed
+                }
+		    }
+		}
+		modifier = {
+            factor = 1.6
+		    ROOT = {
+		        has_global_modifier_value = {
+                    which = missionary_strength
+                    value = 0.03
+		        }
+		    }
+		}
+
+		#IDEAS
+		modifier = {
+			factor = 1.4
+			has_idea_group = trade_ideas
+		}
+		modifier = {
+			factor = 1.4
+			has_idea_group = defensive_ideas
+		}
+		modifier = {
+			factor = 1.4
+			has_idea_group = theocracy_gov_ideas
+		}
+        modifier = {
+			factor = 1.6
+			has_idea_group = quality_ideas
+		}
+        modifier = {
+			factor = 1.6
+			has_idea_group = quantity_ideas
+		}
+        modifier = {
+			factor = 1.3
+			has_idea_group = offensive_ideas
+		}
+	}
+}

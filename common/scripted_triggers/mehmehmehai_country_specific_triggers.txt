@@ -1,0 +1,109 @@
+mehmehmehai_strong_cavalry_country_trigger = {
+    OR = {
+        tag = PLC
+        tag = POL
+        tag = HUN
+        tag = ZAZ
+    }
+}
+
+mehmehmehai_strong_goods_produced_country_trigger = {
+     OR = {
+        tag = GBR
+        tag = PSK
+        tag = BUR
+        tag = USA
+        tag = GER
+    }
+}
+
+mehmehmehai_normal_goods_produced_country_trigger = {
+    OR = {
+        tag = CEB
+        tag = FRS
+        tag = BYT
+        tag = FLA
+        tag = HRZ
+        tag = CMI
+        tag = SUN
+        tag = ADU
+        tag = ZIM
+        tag = MVA
+        tag = ALH
+        tag = AMA
+        tag = BRZ
+        tag = CDL
+        tag = ITO
+        tag = SRV
+        tag = TRE
+        tag = TPR
+        tag = AMA
+        tag = ANS
+        tag = AKK
+        tag = ASA
+        tag = BNG
+        tag = BLG
+        tag = DTT
+        tag = HAN
+        tag = BRU
+        tag = GOS
+        tag = IRE
+        tag = MFA
+        tag = NAP
+        tag = NOL
+        tag = PER
+        tag = POR
+        tag = SZO
+        tag = SPI
+        tag = SAX
+        tag = SIC
+        tag = SLO
+        tag = SWE
+        tag = TEX
+    }
+}
+
+mehmehmehai_disciplined_country_trigger = {
+    OR = {
+        tag = BRA
+        tag = PRU
+        tag = TEU
+        tag = TUR
+        tag = MAM
+        tag = BAV
+        tag = MBZ
+        tag = GBR
+        tag = BUR
+        tag = BRU
+        tag = BYZ
+        tag = KOL
+        tag = MNG
+        tag = IRE
+        tag = HES
+        tag = HRE
+        tag = HUN
+        tag = OIR
+        tag = MCM
+        tag = MUN
+        tag = POL
+        tag = RIG
+        tag = ROT
+        tag = SAX
+        tag = SWE
+        tag = ANS
+        tag = BYT
+        tag = RVA
+        tag = FKN
+        tag = FRA
+        tag = HAN
+        tag = LUN
+        tag = PAP
+        tag = UKR
+        tag = SPA
+        tag = SWI
+        tag = TIM
+        tag = TRI
+        tag = TUS
+        tag = WES
+    }
+}

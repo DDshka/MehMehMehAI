@@ -1,0 +1,212 @@
+economic_ideas = {
+	category = ADM
+
+	bonus = {
+		development_cost = -0.2
+	}
+
+	bureaucracy = {
+		global_tax_modifier = 0.10
+	}
+	organised_construction = {
+		build_cost = -0.1
+	}
+	national_bank = {
+		inflation_reduction = 0.1
+	}
+	debt_and_loans = {
+		interest = -0.5
+	}
+	centralization = {
+		global_autonomy = -0.05
+	}
+	nationalistic_enthusiasm = {
+		land_maintenance_modifier = -0.05
+	}
+	smithian_economics = {
+		production_efficiency = 0.1
+ 	}
+
+	ai_will_do = {
+		factor = 1.0
+
+        #LIMIT
+        modifier = {
+            factor = 0.33
+            ROOT = { mehmehmehai_weak_ruler_trigger = yes }
+        }
+
+		#PERSONALITY
+		modifier = {
+		    factor = 1.25
+		    ROOT = { ruler_has_personality = midas_touched_personality }
+		}
+		modifier = {
+		    factor = 1.25
+		    ROOT = { ruler_has_personality = architectural_visionary_personality }
+		}
+		modifier = {
+		    factor = 1.25
+		    ROOT = { ruler_has_personality = lawgiver_personality }
+		}
+        modifier = {
+		    factor = 1.05
+		    ROOT = { personality = ai_diplomat }
+		}
+        modifier = {
+		    factor = 1.25
+		    ROOT = { personality = ai_militarist }
+		}
+        modifier = {
+		    factor = 1.5
+		    ROOT = { personality = ai_capitalist }
+		}
+
+		#RULER STATS
+        modifier = {
+		    factor = 0.5
+		    ROOT = { mehmehmehai_weak_adm_ruler_trigger = yes }
+		}
+        modifier = {
+		    factor = 1.5
+		    ROOT = { mehmehmehai_strong_adm_ruler_trigger = yes }
+		}
+
+		#HEIR STATS
+        modifier = {
+		    factor = 0.85
+		    ROOT = {
+		        AND = {
+		            has_heir = yes
+		            mehmehmehai_weak_adm_heir_trigger = yes
+		        }
+		    }
+		}
+        modifier = {
+		    factor = 1.25
+		    ROOT = {
+		        AND = {
+		            has_heir = yes
+		            mehmehmehai_strong_adm_heir_trigger = yes
+		        }
+            }
+		}
+
+        #CONSORT STATS
+        modifier = {
+		    factor = 0.85
+		    ROOT = {
+		        AND = {
+		             OR = {
+                        has_heir = no
+		                NOT = { heir_age = 12 }
+		            }
+		            has_consort = yes
+		            mehmehmehai_weak_adm_consort_trigger = yes
+		        }
+		    }
+		}
+        modifier = {
+		    factor = 1.15
+		    ROOT = {
+		        AND = {
+		            OR = {
+                        has_heir = no
+		                NOT = { heir_age = 12 }
+		            }
+		            has_consort = yes
+		            mehmehmehai_strong_adm_consort_trigger = yes
+		        }
+            }
+		}
+
+		#POTENTIAL
+		modifier = {
+			factor = 1.05
+			ROOT = { num_of_cities = 30 }
+        }
+        modifier = {
+            factor = 1.35
+            ROOT = {
+                AND = {
+                    is_emperor_of_china = no
+                    has_global_modifier_value = {
+                        which = global_tax_modifier
+                        value = 0.15
+                    }
+                }
+            }
+        }
+        modifier = {
+            factor = 1.5
+            ROOT = {
+                has_global_modifier_value = {
+                    which = development_cost
+                    value = -0.1
+                }
+            }
+        }
+        modifier = {
+            factor = 1.15
+            ROOT = {
+                any_owned_province = {
+                    AND = {
+                        NOT = { development = 12 }
+                        trade_goods = gold
+                    }
+                }
+            }
+        }
+        modifier = {
+            factor = 1.2
+            ROOT = { inflation = 5 }
+        }
+        modifier = {
+		    factor = 1.25
+		    ROOT = {
+		        AND = {
+		            NOT = { ruler_age = 65 }
+                    mehmehmehai_strong_ruler_trigger = yes
+		        }
+		    }
+		}
+
+		#IDEAS
+		modifier = {
+			factor = 2.0
+			has_idea_group = quality_ideas
+		}
+		modifier = {
+			factor = 1.3
+			has_idea_group = diplomatic_ideas
+		}
+		modifier = {
+			factor = 1.2
+			has_idea_group = influence_ideas
+		}
+		modifier = {
+			factor = 1.4
+			has_idea_group = trade_ideas
+		}
+        modifier = {
+			factor = 1.6
+			has_idea_group = aristocracy_ideas
+		}
+        modifier = {
+			factor = 1.6
+			has_idea_group = horde_ideas
+		}
+        modifier = {
+			factor = 1.7
+			has_idea_group = naval_ideas
+		}
+        modifier = {
+			factor = 1.7
+			has_idea_group = offensive_ideas
+		}
+        modifier = {
+			factor = 2.0
+			has_idea_group = quantity_ideas
+		}
+	}
+}

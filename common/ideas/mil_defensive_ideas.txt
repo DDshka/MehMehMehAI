@@ -1,0 +1,207 @@
+defensive_ideas = {
+	category = MIL
+
+	bonus = {
+		hostile_attrition = 1
+	}
+
+	battlefield_commisions = {
+		army_tradition_from_battle = 1.0
+	}
+	military_drill = {
+		land_morale = 0.15
+	}
+	improved_manuever = {
+		leader_land_manuever = 1
+	}
+	regimental_system = {
+		land_maintenance_modifier = -0.05
+	}
+	defensive_mentality = {
+		defensiveness = 0.2
+		fort_maintenance_modifier = -0.1
+	}
+	supply_trains = {
+		reinforce_speed = 0.33
+	}
+	improved_foraging = {
+		land_attrition = -0.25
+	}
+
+	ai_will_do = {
+		factor = 1.0
+
+        #LIMIT
+		modifier = {
+			factor = 0.5
+			is_great_power = yes
+		}
+
+		#PERSONALITY
+		modifier = {
+			factor = 1.2
+			ROOT = { ruler_has_personality = tactical_genius_personality }
+		}
+        modifier = {
+		    factor = 1.35
+		    ROOT = { ruler_has_personality = inspiring_leader_personality }
+		}
+		modifier = {
+		    factor = 1.35
+		    ROOT = { personality = ai_militarist }
+		}
+        modifier = {
+		    factor = 1.2
+		    ROOT = { personality = ai_diplomat }
+		}
+        modifier = {
+		    factor = 1.1
+		    ROOT = { personality = ai_capitalist }
+		}
+		modifier = {
+		    factor = 0.75
+		    ROOT = { personality = ai_colonialist }
+		}
+
+		#RULER STATS
+        modifier = {
+		    factor = 0.5
+		    ROOT = { mehmehmehai_weak_mil_ruler_trigger = yes }
+		}
+        modifier = {
+		    factor = 1.5
+		    ROOT = { mehmehmehai_strong_mil_ruler_trigger = yes }
+		}
+
+		#HEIR STATS
+        modifier = {
+		    factor = 0.85
+		    ROOT = {
+		        AND = {
+		            has_heir = yes
+		            mehmehmehai_weak_mil_heir_trigger = yes
+		        }
+		    }
+		}
+        modifier = {
+		    factor = 1.5
+		    ROOT = {
+		        AND = {
+		            has_heir = yes
+		            mehmehmehai_strong_mil_heir_trigger = yes
+		        }
+            }
+		}
+
+        #CONSORT STATS
+        modifier = {
+		    factor = 0.85
+		    ROOT = {
+		        AND = {
+		             OR = {
+                        has_heir = no
+		                NOT = { heir_age = 12 }
+		            }
+		            has_consort = yes
+		            mehmehmehai_weak_mil_consort_trigger = yes
+		        }
+		    }
+		}
+        modifier = {
+		    factor = 1.15
+		    ROOT = {
+		        AND = {
+		            OR = {
+                        has_heir = no
+		                NOT = { heir_age = 12 }
+		            }
+		            has_consort = yes
+		            mehmehmehai_strong_mil_consort_trigger = yes
+		        }
+            }
+		}
+
+		#POTENTIAL
+		modifier = {
+		    factor = 1.2
+		    ROOT = { is_march = yes }
+		}
+		modifier = {
+			factor = 2.0
+			any_neighbor_country = {
+			    AND = {
+			        has_global_modifier_value = {
+			            which = global_manpower_modifier
+			            value = 0.25
+			        }
+			        ROOT = {
+			            NOT = {
+                            has_global_modifier_value = {
+			                    which = global_manpower_modifier
+			                    value = 0.25
+			                }
+                        }
+			        }
+			    }
+			}
+		}
+
+        modifier = {
+			factor = 1.75
+            any_neighbor_country = {
+                ai_attitude = {
+                    who = ROOT
+                    attitude = attitude_domineering
+                }
+            }
+		}
+		modifier = {
+		    factor = 1.5
+            num_of_owned_provinces_with = {
+                value = 6
+                fort_level = 2
+            }
+		}
+		modifier = {
+		    factor = 1.25
+		    calc_true_if = {
+                all_owned_province = {
+                   has_terrain = mountain
+                    NOT = { local_autonomy = 0.1 }
+                }
+                amount = 5
+            }
+		}
+		modifier = {
+		    factor = 1.6
+		    any_neighbor_country = {
+		        has_global_modifier_value = {
+		            which = siege_ability
+		            value = 0.25
+		        }
+		    }
+		}
+
+		#IDEAS
+		modifier = {
+			factor = 1.5
+			ROOT = { has_idea_group = humanist_ideas }
+		}
+        modifier = {
+			factor = 1.6
+			ROOT = { has_idea_group = innovativeness_ideas }
+		}
+        modifier = {
+			factor = 1.4
+			ROOT = { has_idea_group = spy_ideas }
+		}
+        modifier = {
+			factor = 1.4
+			ROOT = { has_idea_group = influence_ideas }
+		}
+        modifier = {
+			factor = 1.2
+			ROOT = { has_idea_group = trade_ideas }
+		}
+	}
+}

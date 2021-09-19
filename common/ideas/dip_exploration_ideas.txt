@@ -1,0 +1,237 @@
+exploration_ideas = {
+	category = DIP
+	important = yes
+
+	bonus = {
+		cb_on_primitives = yes
+	}
+
+	quest_for_the_new_world	= {
+		may_explore = yes
+	}
+
+	colonial_ventures = {
+		colonists = 1
+	}
+
+	overseas_exploration = {
+		range = 0.5
+	}
+	land_of_opportunity = {
+		global_colonial_growth = 10
+	}
+	vice_roys  = {
+		global_tariffs = 0.10
+ 		envoy_travel_time = -0.20
+ 	}
+	free_colonies = {
+		expel_minorities_cost = -1.0
+	}
+	global_empire = {
+		naval_forcelimit_modifier = 0.25
+	}
+
+	ai_will_do = {
+		factor = 1.0
+
+		#LIMIT
+		modifier = {
+		    factor = 0
+		    ROOT = {
+		        OR = {
+		            is_colonial_nation = yes
+		            is_tribal = yes
+		            primitives = yes
+		            NOT = { num_of_ports = 1 }
+		            NOT = { num_of_light_ship = 9 }
+                    NOT = {
+                        calc_true_if = {
+                            all_province = {
+                                AND = {
+                                    has_port = yes
+                                    is_empty = yes
+                                }
+                            }
+                            amount = 5
+                        }
+                    }
+		        }
+		    }
+		}
+		modifier = {
+			factor = 0.1
+			NOT = {
+                # Countries on the coast of East Mediterranean Area
+                any_owned_province = {
+                    has_port = yes
+                    sea_zone = {
+                        NOT = { area = eastern_mediterrenean_area }
+                    }
+                }
+			}
+		}
+		modifier = {
+		    factor = 0.66
+		    is_year = 1550
+		}
+
+        #PERSONALITY
+		modifier = {
+			factor = 2.0
+			ROOT = {
+			    OR = {
+                    ruler_has_personality = expansionist_personality
+		            ruler_has_personality = navigator_personality
+                }
+			}
+		}
+        modifier = {
+		    factor = 1.3
+		    ROOT = { personality = ai_diplomat }
+		}
+        modifier = {
+		    factor = 1.1
+		    ROOT = { personality = ai_capitalist }
+		}
+        modifier = {
+		    factor = 2.0
+		    ROOT = { personality = ai_colonialist }
+		}
+
+        #RULER STATS
+        modifier = {
+		    factor = 0.5
+		    ROOT = { mehmehmehai_weak_dip_ruler_trigger = yes }
+		}
+        modifier = {
+		    factor = 1.5
+		    ROOT = { mehmehmehai_strong_dip_ruler_trigger = yes }
+		}
+
+		#HEIR STATS
+        modifier = {
+		    factor = 0.85
+		    ROOT = {
+		        AND = {
+		            has_heir = yes
+		            mehmehmehai_weak_dip_heir_trigger = yes
+		        }
+		    }
+		}
+        modifier = {
+		    factor = 1.5
+		    ROOT = {
+		        AND = {
+		            has_heir = yes
+		            mehmehmehai_strong_dip_heir_trigger = yes
+		        }
+            }
+		}
+
+        #CONSORT STATS
+        modifier = {
+		    factor = 0.85
+		    ROOT = {
+		        AND = {
+		             OR = {
+                        has_heir = no
+		                NOT = { heir_age = 12 }
+		            }
+		            has_consort = yes
+		            mehmehmehai_weak_dip_consort_trigger = yes
+		        }
+		    }
+		}
+        modifier = {
+		    factor = 1.15
+		    ROOT = {
+		        AND = {
+		            OR = {
+                        has_heir = no
+		                NOT = { heir_age = 12 }
+		            }
+		            has_consort = yes
+		            mehmehmehai_strong_dip_consort_trigger = yes
+		        }
+            }
+		}
+
+        #POTENTIAL
+		modifier = {
+			factor = 1.05
+			num_of_ports = 8
+		}
+		modifier = {
+			factor = 1.1
+			num_of_ports = 20
+		}
+        modifier = {
+			factor = 1.15
+			num_of_ports = 30
+		}
+        modifier = {
+            factor = 1.2
+            trade_income_percentage = 0.3
+        }
+        modifier = {
+            factor = 1.2
+            NOT = { total_development = 450 }
+        }
+        modifier = {
+		    factor = 1.35
+		    ROOT = {
+		        current_income_balance = 15
+		    }
+		}
+
+        #TAG
+		modifier = {
+			factor = 1.75
+			OR = {
+				tag = POR
+				tag = CAS
+				tag = SPA
+				tag = FRA
+				tag = ENG
+				tag = GBR
+				tag = NED
+				tag = ICE
+				tag = BRI
+			}
+		}
+
+		#IDEAS
+		modifier = {
+		    factor = 1.25
+		    ROOT = { has_idea_group = administrative_ideas }
+		}
+        modifier = {
+		    factor = 1.8
+		    ROOT = { has_idea_group = expansion_ideas }
+		}
+        modifier = {
+		    factor = 1.25
+		    ROOT = { has_idea_group = humanist_ideas }
+		}
+        modifier = {
+		    factor = 1.8
+		    ROOT = { has_idea_group = naval_ideas }
+		}
+        modifier = {
+		    factor = 1.5
+		    ROOT = { has_idea_group = defensive_ideas }
+		}
+        modifier = {
+		    factor = 1.4
+		    ROOT = {
+		        AND = {
+		            OR = {
+		                has_idea_group = economic_ideas
+		                has_idea_group = religious_ideas
+		            }
+		            colony = 1
+		        }
+            }
+		}
+	}
+}

@@ -1,0 +1,152 @@
+horde_gov_ideas = {
+	category = MIL
+
+	bonus = {
+		cavalry_power = 0.25
+	}
+
+	trigger = {
+		ROOT = { has_reform = steppe_horde }
+	}
+
+	horse_lords = {
+		cavalry_cost = -0.33
+	}
+	beyond_the_sun = {
+		ae_impact = -0.1
+	}
+	mandate_of_the_khan = {
+		religious_unity = 0.25
+	}
+	there_shall_be_no_grass = {
+		land_attrition = -0.2
+	}
+	horde_loyalty = {
+		global_unrest = -1
+	}
+	watchers_of_the_silk_road = {
+		caravan_power = 0.20
+	}
+	a_magnanimous_empire = {
+		num_accepted_cultures = 2
+	}
+
+	ai_will_do = {
+		factor = 2.0
+
+        #PERSONALITY
+		modifier = {
+		    factor = 1.5
+		    ROOT = { personality = ai_militarist }
+		}
+        modifier = {
+		    factor = 1.25
+		    ROOT = {
+		        OR = {
+		            personality = ai_diplomat
+		            personality = ai_capitalist
+                }
+		    }
+		}
+
+		#RULER STATS
+        modifier = {
+		    factor = 0.5
+		    ROOT = { mehmehmehai_weak_mil_ruler_trigger = yes }
+		}
+        modifier = {
+		    factor = 1.5
+		    ROOT = { mehmehmehai_strong_mil_ruler_trigger = yes }
+		}
+
+		#HEIR STATS
+        modifier = {
+		    factor = 0.85
+		    ROOT = {
+		        AND = {
+		            has_heir = yes
+		            mehmehmehai_weak_mil_heir_trigger = yes
+		        }
+		    }
+		}
+        modifier = {
+		    factor = 1.5
+		    ROOT = {
+		        AND = {
+		            has_heir = yes
+		            mehmehmehai_strong_mil_heir_trigger = yes
+		        }
+            }
+		}
+
+        #CONSORT STATS
+        modifier = {
+		    factor = 0.85
+		    ROOT = {
+		        AND = {
+		             OR = {
+                        has_heir = no
+		                NOT = { heir_age = 12 }
+		            }
+		            has_consort = yes
+		            mehmehmehai_weak_mil_consort_trigger = yes
+		        }
+		    }
+		}
+        modifier = {
+		    factor = 1.15
+		    ROOT = {
+		        AND = {
+		            OR = {
+                        has_heir = no
+		                NOT = { heir_age = 12 }
+		            }
+		            has_consort = yes
+		            mehmehmehai_strong_mil_consort_trigger = yes
+		        }
+            }
+		}
+
+		#POTENTIAL
+		modifier = {
+		    factor = 2.0
+            ROOT = {
+                has_global_modifier_value = {
+                    which = cavalry_power
+                    value = 0.1
+                }
+            }
+		}
+		modifier = {
+		    factor = 2.0
+		    ROOT = {
+                has_global_modifier_value = {
+                    which = cavalry_cost
+                    value = -0.1
+                }
+		    }
+		}
+
+        #IDEAS
+		modifier = {
+			factor = 1.4
+			ROOT = { has_idea_group = administrative_ideas }
+		}
+		modifier = {
+			factor = 1.5
+			ROOT = { has_idea_group = economic_ideas }
+		}
+		modifier = {
+			factor = 1.4
+			ROOT = { has_idea_group = humanist_ideas }
+		}
+        modifier = {
+			factor = 2.0
+			ROOT = { has_idea_group = spy_ideas }
+		}
+        modifier = {
+			factor = 1.8
+			ROOT = { has_idea_group = diplomatic_ideas }
+		}
+	}
+}

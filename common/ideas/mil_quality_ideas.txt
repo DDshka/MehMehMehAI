@@ -1,0 +1,165 @@
+quality_ideas = {
+	category = MIL
+
+	bonus = {
+		discipline = 0.05
+	}
+
+	private_to_marshal = {
+		infantry_power = 0.1
+	}
+	quality_education = {
+		army_tradition = 0.5
+	}
+	finest_of_horses = {
+		cavalry_power = 0.1
+	}
+	escort_ships = {
+		ship_durability = 0.05
+	}
+	naval_drill = {
+		naval_morale = 0.10
+	}
+	copper_bottoms = {
+		naval_attrition = -0.25
+	}
+	massed_battery = {
+		artillery_power = 0.1
+	}
+
+	ai_will_do = {
+		factor = 1.0
+
+		#PERSONALITY
+		modifier = {
+			factor = 1.35
+			ROOT = { ruler_has_personality = strict_personality }
+		}
+		modifier = {
+		    factor = 1.5
+		    ROT = { ruler_has_personality = martial_educator_personality }
+		}
+		modifier = {
+		    factor = 1.25
+		    ROOT = { ruler_has_personality = conqueror_personality }
+		}
+		modifier = {
+		    factor = 1.5
+		    ROOT = { personality = ai_militarist }
+		}
+        modifier = {
+		    factor = 0.9
+		    ROOT = { personality = ai_diplomat }
+		}
+        modifier = {
+		    factor = 1.15
+		    ROOT = { personality = ai_capitalist }
+		}
+		modifier = {
+		    factor = 1.2
+		    ROOT = { personality = ai_colonialist }
+		}
+
+		#RULER STATS
+        modifier = {
+		    factor = 0.5
+		    ROOT = { mehmehmehai_weak_mil_ruler_trigger = yes }
+		}
+        modifier = {
+		    factor = 1.5
+		    ROOT = { mehmehmehai_strong_mil_ruler_trigger = yes }
+		}
+
+		#HEIR STATS
+        modifier = {
+		    factor = 0.85
+		    ROOT = {
+		        AND = {
+		            has_heir = yes
+		            mehmehmehai_weak_mil_heir_trigger = yes
+		        }
+		    }
+		}
+        modifier = {
+		    factor = 1.5
+		    ROOT = {
+		        AND = {
+		            has_heir = yes
+		            mehmehmehai_strong_mil_heir_trigger = yes
+		        }
+            }
+		}
+
+        #CONSORT STATS
+        modifier = {
+		    factor = 0.85
+		    ROOT = {
+		        AND = {
+		             OR = {
+                        has_heir = no
+		                NOT = { heir_age = 12 }
+		            }
+		            has_consort = yes
+		            mehmehmehai_weak_mil_consort_trigger = yes
+		        }
+		    }
+		}
+        modifier = {
+		    factor = 1.15
+		    ROOT = {
+		        AND = {
+		            OR = {
+                        has_heir = no
+		                NOT = { heir_age = 12 }
+		            }
+		            has_consort = yes
+		            mehmehmehai_strong_mil_consort_trigger = yes
+		        }
+            }
+		}
+
+		#POTENTIAL
+		modifier = {
+			factor = 1.25
+			is_great_power = yes
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { total_development = 400 }
+		}
+		modifier = {
+		    factor = 1.25
+		    ROOT = { num_of_ports = 8 }
+		}
+		modifier = {
+		    factor = 1.5
+		    mehmehmehai_disciplined_country_trigger = yes
+		}
+
+		#IDEAS
+		modifier = {
+			factor = 1.8
+			has_idea_group = religious_ideas
+		}
+		modifier = {
+			factor = 2.0
+			has_idea_group = innovativeness_ideas
+		}
+		modifier = {
+			factor = 2.0
+			has_idea_group = economic_ideas
+		}
+        modifier = {
+			factor = 1.2
+			has_idea_group = spy_ideas
+		}
+        modifier = {
+			factor = 1.4
+			has_idea_group = exploration_ideas
+		}
+        modifier = {
+			factor = 1.4
+			has_idea_group = trade_ideas
+		}
+	}
+}

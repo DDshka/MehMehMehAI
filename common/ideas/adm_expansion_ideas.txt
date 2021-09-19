@@ -1,0 +1,206 @@
+expansion_ideas = {
+	category = ADM
+	important = yes
+
+	bonus = {
+ 		min_autonomy_in_territories = -0.1
+	}
+
+	additional_colonists = {
+		colonists = 1
+	}
+	additional_merchants = {
+		merchants = 1
+	}
+	faster_colonists = {
+		global_colonial_growth = 20
+	}
+	factories = {
+		rival_border_fort_maintenance = -0.5
+		center_of_trade_upgrade_cost = -0.2
+	}
+	additional_diplomats = {
+		diplomatic_upkeep = 1
+	}
+	general_colonization_law  = {
+		colonists = 1
+		colonist_placement_chance = 0.05
+	}
+	competetive_merchants  = {
+		global_trade_power = 0.2
+	}
+
+	ai_will_do = {
+		factor = 1.0
+
+		#LIMIT
+        modifier = {
+			factor = 0
+			NOT = {
+				any_owned_province = {
+					has_empty_adjacent_province = yes
+				}
+			}
+		}
+
+        #PERSONALITY
+		modifier = {
+			factor = 2.0
+			ruler_has_personality = expansionist_personality
+		}
+        modifier = {
+		    factor = 1.5
+		    ROOT = { personality = ai_colonialist }
+		}
+        modifier = {
+		    factor = 1.15
+		    ROOT = { personality = ai_capitalist }
+		}
+		 modifier = {
+		    factor = 1.1
+		    ROOT = { personality = ai_diplomat }
+		}
+        modifier = {
+		    factor = 1.25
+		    ROOT = { personality = ai_militarist }
+		}
+
+		#RULER STATS
+        modifier = {
+		    factor = 0.5
+		    ROOT = { mehmehmehai_weak_adm_ruler_trigger = yes }
+		}
+        modifier = {
+		    factor = 1.5
+		    ROOT = { mehmehmehai_strong_adm_ruler_trigger = yes }
+		}
+
+		#HEIR STATS
+        modifier = {
+		    factor = 0.85
+		    ROOT = {
+		        AND = {
+		            has_heir = yes
+		            mehmehmehai_weak_adm_heir_trigger = yes
+		        }
+		    }
+		}
+        modifier = {
+		    factor = 1.25
+		    ROOT = {
+		        AND = {
+		            has_heir = yes
+		            mehmehmehai_strong_adm_heir_trigger = yes
+		        }
+            }
+		}
+
+        #CONSORT STATS
+        modifier = {
+		    factor = 0.85
+		    ROOT = {
+		        AND = {
+		             OR = {
+                        has_heir = no
+		                NOT = { heir_age = 12 }
+		            }
+		            has_consort = yes
+		            mehmehmehai_weak_adm_consort_trigger = yes
+		        }
+		    }
+		}
+        modifier = {
+		    factor = 1.15
+		    ROOT = {
+		        AND = {
+		            OR = {
+                        has_heir = no
+		                NOT = { heir_age = 12 }
+		            }
+		            has_consort = yes
+		            mehmehmehai_strong_adm_consort_trigger = yes
+		        }
+            }
+		}
+
+		#Third Rome Compatibility
+		modifier = {
+			factor = 2.0
+			NOT = { has_dlc = "Third Rome" } # Has siberian frontier instead
+			tag = RUS
+			num_of_cities = 20
+			any_owned_province = {
+				has_empty_adjacent_province = yes
+			}
+		}
+
+		#POTENTIAL
+        modifier = {
+			factor = 2.0
+            ROOT = { is_colonial_nation = yes }
+		}
+		modifier = {
+		    factor = 1.8
+		    ROOT = { colony = 2 }
+		}
+		modifier = {
+		    factor = 1.4
+		    ROOT = {
+		        AND = {
+		            NOT = { colony = 2 }
+		            has_idea_group = exploration_ideas
+		        }
+		    }
+		}
+        modifier = {
+		    factor = 1.1
+		    ROOT = { monthly_income = 6 }
+		}
+		modifier = {
+		    factor = 2.0
+		    ROOT = { trade_company_size = 20 }
+		}
+        modifier = {
+		    factor = 1.2
+		    ROOT = { trade_income_percentage = 0.35 }
+		}
+		modifier = {
+		    factor = 1.15
+		    ROOT = { production_income_percentage = 0.4 }
+		}
+
+		#IDEAS
+        modifier = {
+            factor = 2.0
+            ROOT = { has_idea_group = exploration_ideas }
+        }
+        modifier = {
+            factor = 1.4
+            ROOT = { has_idea_group = influence_ideas }
+        }
+        modifier = {
+            factor = 1.4
+            ROOT = { has_idea_group = maritime_ideas }
+        }
+        modifier = {
+            factor = 1.6
+            ROOT = { has_idea_group = aristocracy_ideas }
+        }
+        modifier = {
+            factor = 1.6
+            ROOT = { has_idea_group = horde_ideas }
+        }
+        modifier = {
+            factor = 1.8
+            ROOT = { has_idea_group = naval_ideas }
+        }
+        modifier = {
+            factor = 1.5
+            ROOT = { has_idea_group = plutocracy_ideas }
+        }
+        modifier = {
+            factor = 1.5
+            ROOT = { has_idea_group = quantity_ideas }
+        }
+	}
+}

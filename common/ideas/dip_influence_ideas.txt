@@ -1,0 +1,166 @@
+influence_ideas = {
+	category = DIP
+
+	bonus = {
+		unjustified_demands = -0.5
+	}
+
+	tribute_system = {
+		vassal_income = 0.25
+	}
+
+	additional_loyalist_recruitment = {
+		reduced_liberty_desire = 15
+	}
+
+	integrated_elites = {
+		diplomatic_annexation_cost = -0.25
+	}
+	buffer_states = {
+		diplomatic_upkeep = 1
+	}
+	diplomatic_influence = {
+		diplomatic_reputation = 2
+	}
+	postal_service = {
+		envoy_travel_time = -0.25
+	}
+	marcher_lords = {
+		vassal_forcelimit_bonus = 1
+	}
+
+	ai_will_do = {
+		factor = 1.0
+
+		#LIMIT
+		modifier = {
+			factor = 0.1
+			is_subject_other_than_tributary_trigger = yes
+		}
+		modifier = {
+		    factor = 0.5
+		    AND = {
+		        ROOT = { is_emperor = no }
+                calc_true_if = {
+                    all_country = { is_subject_of = ROOT }
+                    amount = 0
+                }
+		    }
+		}
+
+        #PERSONALITY
+		modifier = {
+			factor = 1.5
+			ROOT = { ruler_has_personality = benevolent_personality }
+		}
+		modifier = {
+		    factor = 0.5
+		    ROOT = { personality = ai_militarist }
+		}
+        modifier = {
+		    factor = 1.2
+		    ROOT = { personality = ai_diplomat }
+		}
+        modifier = {
+		    factor = 1.1
+		    ROOT = { personality = ai_capitalist }
+		}
+		modifier = {
+		    factor = 1.3
+		    ROOT = { personality = ai_colonialist }
+		}
+
+        #RULER STATS
+        modifier = {
+		    factor = 0.5
+		    ROOT = { mehmehmehai_weak_dip_ruler_trigger = yes }
+		}
+        modifier = {
+		    factor = 1.5
+		    ROOT = { mehmehmehai_strong_dip_ruler_trigger = yes }
+		}
+
+		#HEIR STATS
+        modifier = {
+		    factor = 0.85
+		    ROOT = {
+		        AND = {
+		            has_heir = yes
+		            mehmehmehai_weak_dip_heir_trigger = yes
+		        }
+		    }
+		}
+        modifier = {
+		    factor = 1.5
+		    ROOT = {
+		        AND = {
+		            has_heir = yes
+		            mehmehmehai_strong_dip_heir_trigger = yes
+		        }
+            }
+		}
+
+        #CONSORT STATS
+        modifier = {
+		    factor = 0.85
+		    ROOT = {
+		        AND = {
+		             OR = {
+                        has_heir = no
+		                NOT = { heir_age = 12 }
+		            }
+		            has_consort = yes
+		            mehmehmehai_weak_dip_consort_trigger = yes
+		        }
+		    }
+		}
+        modifier = {
+		    factor = 1.15
+		    ROOT = {
+		        AND = {
+		            OR = {
+                        has_heir = no
+		                NOT = { heir_age = 12 }
+		            }
+		            has_consort = yes
+		            mehmehmehai_strong_dip_consort_trigger = yes
+		        }
+            }
+		}
+
+		#POTENTIAl
+        modifier = {
+			factor = 1.4
+			ROOT = { is_emperor = yes }
+		}
+        modifier = {
+			factor = 1.35
+			ROOT = { is_emperor_of_china = yes }
+		}
+        modifier = {
+			factor = 1.5
+			ROOT = { has_reform = shogunate }
+		}
+		modifier = {
+			factor = 1.2
+			calc_true_if = {
+			    all_country = { is_subject_of = ROOT }
+			    amount = 2
+			}
+		}
+		modifier = {
+			factor = 1.35
+            calc_true_if = {
+			    all_country = { is_subject_of = ROOT }
+			    amount = 3
+			}
+		}
+		modifier = {
+			factor = 1.45
+            calc_true_if = {
+			    all_country = { is_subject_of = ROOT }
+			    amount = 4
+			}
+		}
+	}
+}
