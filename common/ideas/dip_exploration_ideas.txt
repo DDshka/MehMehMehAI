@@ -42,8 +42,19 @@ exploration_ideas = {
 		            is_colonial_nation = yes
 		            is_tribal = yes
 		            primitives = yes
-		            current_age = age_of_revolutions #too late'
-		            NOT = { num_of_ports = 2 }
+		            NOT = { num_of_ports = 1 }
+		            NOT = { num_of_light_ship = 9 }
+                    NOT = {
+                        calc_true_if = {
+                            all_province = {
+                                AND = {
+                                    has_port = yes
+                                    is_empty = yes
+                                }
+                            }
+                            amount = 5
+                        }
+                    }
 		        }
 		    }
 		}
@@ -58,6 +69,10 @@ exploration_ideas = {
                     }
                 }
 			}
+		}
+		modifier = {
+		    factor = 0.5
+		    is_year = 1550
 		}
 
         #PERSONALITY
@@ -147,11 +162,11 @@ exploration_ideas = {
 			num_of_ports = 8
 		}
 		modifier = {
-			factor = 1.15
+			factor = 1.1
 			num_of_ports = 20
 		}
         modifier = {
-			factor = 1.2
+			factor = 1.15
 			num_of_ports = 30
 		}
         modifier = {

@@ -47,18 +47,22 @@ theocracy_gov_ideas = {
 		#PERSONALITY
 		modifier = {
 			factor = 1.5
-			ROOT = { ruler_has_good_mil_personality = yes }
+			ROOT = { ruler_has_personality = zealot_personality }
 		}
 		modifier = {
-		    factor = 1.8
+			factor = 1.5
+			ROOT = { ruler_has_personality = pious_personality }
+		}
+		modifier = {
+		    factor = 1.5
 		    ROOT = { personality = ai_militarist }
 		}
         modifier = {
-		    factor = 1.2
+		    factor = 1.1
 		    ROOT = { personality = ai_diplomat }
 		}
         modifier = {
-		    factor = 1.4
+		    factor = 1.3
 		    ROOT = { personality = ai_capitalist }
 		}
 

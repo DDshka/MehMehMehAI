@@ -29,30 +29,31 @@ diplomatic_ideas = {
 	ai_will_do = {
 		factor = 1.0
 
-		modifier = {
-			factor = 1.4
-			ROOT = { is_great_power = yes }
-		}
+        #LIMIT
+        modifier = {
+            factor = 0.1
+            ROOT = { is_subject_other_than_tributary_trigger = yes }
+        }
 
 		#PERSONALITY
 		modifier = {
-			factor = 1.25
+			factor = 1.15
 			ROOT = { ruler_has_good_dip_personality = yes }
 		}
 		modifier = {
-		    factor = 0.25
+		    factor = 0.4
 		    ROOT = { personality = ai_militarist }
 		}
         modifier = {
-		    factor = 1.4
+		    factor = 1.2
 		    ROOT = { personality = ai_diplomat }
 		}
         modifier = {
-		    factor = 1.15
+		    factor = 1.1
 		    ROOT = { personality = ai_capitalist }
 		}
 		modifier = {
-		    factor = 1.2
+		    factor = 1.15
 		    ROOT = { personality = ai_colonialist }
 		}
 
@@ -115,32 +116,36 @@ diplomatic_ideas = {
 		}
 
 		#POTENTIAL
+        modifier = {
+			factor = 1.2
+			ROOT = { is_great_power = yes }
+		}
 		modifier = {
-			factor = 1.5
+			factor = 1.1
 			ROOT = { is_part_of_hre = yes }
 		}
 		modifier = {
-			factor = 1.5
+			factor = 1.2
 			ROOT = { is_elector = yes }
 		}
 		modifier = {
-			factor = 2.0
+			factor = 1.6
 			ROOT = { is_emperor = yes }
 		}
 		modifier = {
-		    factor = 1.4
+		    factor = 1.3
 		    personal_union = 1
 		}
         modifier = {
-		    factor = 1.4
+		    factor = 1.3
 		    personal_union = 2
 		}
         modifier = {
-		    factor = 1.4
+		    factor = 1.3
 		    personal_union = 3
 		}
 		modifier = {
-		    factor = 1.6
+		    factor = 1.75
 		    calc_true_if = {
 		        all_country = {
                     is_rival = ROOT

@@ -45,31 +45,29 @@ religious_ideas = {
 			        religion = confucianism
 			        has_idea_group = humanist_ideas
 			        ruler_has_personality = sinner_personality
+
+			        has_global_modifier_value = {
+                        which = tolerance_heretic
+                        value = 2.5
+                    }
+
+                    has_global_modifier_value = {
+                        which = tolerance_heathen
+                        value = 2.5
+                    }
 			    }
 			}
 		}
 		modifier = {
-		    factor = 0.3
+		    factor = 0.5
 		    ROOT = {
-		        has_global_modifier_value = {
-		            which = tolerance_heretic
-		            value = 2.5
-		        }
-		    }
-		}
-        modifier = {
-		    factor = 0.2
-		    ROOT = {
-                has_global_modifier_value = {
-		            which = tolerance_heathen
-		            value = 2.5
-		        }
+		        religious_unity = 0.96
 		    }
 		}
 
 		#PERSONALITY
 		modifier = {
-			factor = 2.0
+			factor = 1.5
 			ruler_has_personality = zealot_personality
 		}
         modifier = {
@@ -77,11 +75,11 @@ religious_ideas = {
 		    ROOT = { personality = ai_diplomat }
 		}
         modifier = {
-		    factor = 1.35
+		    factor = 1.3
 		    ROOT = { personality = ai_militarist }
 		}
         modifier = {
-		    factor = 1.4
+		    factor = 1.3
 		    ROOT = { personality = ai_capitalist }
 		}
 
@@ -106,7 +104,7 @@ religious_ideas = {
 		    }
 		}
         modifier = {
-		    factor = 1.5
+		    factor = 1.25
 		    ROOT = {
 		        AND = {
 		            has_heir = yes
@@ -145,15 +143,15 @@ religious_ideas = {
 
 		#POTENTIAL
 		modifier = {
-			factor = 1.4
-			NOT = { religious_unity = 0.75 }
+			factor = 1.35
+			NOT = { dominant_religion = ROOT  }
 		}
 		modifier = {
-			factor = 1.2
+			factor = 1.25
 			ROOT = { government = theocracy }
 		}
 		modifier = {
-			factor = 1.8
+			factor = 1.4
             any_neighbor_country = {
                 NOT = {
                     AND = {
@@ -168,7 +166,7 @@ religious_ideas = {
             }
 		}
         modifier = {
-			factor = 1.4
+			factor = 1.15
             any_neighbor_country = {
                 NOT = {
                     AND = {
@@ -184,7 +182,7 @@ religious_ideas = {
             }
 		}
 		modifier = {
-		    factor = 1.5
+		    factor = 1.25
 		    AND = {
 		        ROOT = { is_part_of_hre = true }
 		        OR = {
@@ -194,7 +192,7 @@ religious_ideas = {
 		    }
 		}
 		modifier = {
-                factor = 1.5
+            factor = 1.6
 		    ROOT = {
 		        has_global_modifier_value = {
                     which = missionary_strength

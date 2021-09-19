@@ -30,6 +30,12 @@ economic_ideas = {
 	ai_will_do = {
 		factor = 1.0
 
+        #LIMIT
+        modifier = {
+            factor = 0.33
+            ROOT = { mehmehmehai_weak_ruler_trigger = yes }
+        }
+
 		#PERSONALITY
 		modifier = {
 		    factor = 1.25
@@ -48,11 +54,11 @@ economic_ideas = {
 		    ROOT = { personality = ai_diplomat }
 		}
         modifier = {
-		    factor = 1.1
+		    factor = 1.25
 		    ROOT = { personality = ai_militarist }
 		}
         modifier = {
-		    factor = 1.4
+		    factor = 1.5
 		    ROOT = { personality = ai_capitalist }
 		}
 
@@ -77,7 +83,7 @@ economic_ideas = {
 		    }
 		}
         modifier = {
-		    factor = 1.5
+		    factor = 1.25
 		    ROOT = {
 		        AND = {
 		            has_heir = yes
@@ -116,65 +122,51 @@ economic_ideas = {
 
 		#POTENTIAL
 		modifier = {
-			factor = 1.15
-			is_great_power = no
-		}
-		modifier = {
-			factor = 1.4
-			xorme_wealthy_region_trigger = yes
-		}
-		modifier = {
-			factor = 1.2
-			ROOT = {
-			    num_of_cities = 25
-			}
+			factor = 1.05
+			ROOT = { num_of_cities = 30 }
         }
         modifier = {
-            factor = 1.5
+            factor = 1.35
             ROOT = {
-                tax_income_percentage = 0.5
-            }
-        }
-        modifier = {
-            factor = 1.8
-            ROOT = {
-                any_owned_province = {
-                    NOT = { development = 12 }
-                    trade_goods = gold
+                AND = {
+                    is_emperor_of_china = no
+                    has_global_modifier_value = {
+                        which = global_tax_modifier
+                        value = 0.15
+                    }
                 }
             }
         }
         modifier = {
-            factor = 1.25
+            factor = 1.5
             ROOT = {
-                inflation = 5
+                has_global_modifier_value = {
+                    which = development_cost
+                    value = -0.1
+                }
             }
         }
         modifier = {
             factor = 1.15
             ROOT = {
-                capital_scope = {
-                    is_prosperous = yes
+                any_owned_province = {
+                    AND = {
+                        NOT = { development = 12 }
+                        trade_goods = gold
+                    }
                 }
             }
         }
         modifier = {
-		    factor = 1.2
+            factor = 1.2
+            ROOT = { inflation = 5 }
+        }
+        modifier = {
+		    factor = 1.25
 		    ROOT = {
 		        AND = {
-		            adm = 4
-		            dip = 4
-		            mil = 4
-		        }
-		    }
-		}
-		modifier = {
-		    factor = 1.3
-		    ROOT = {
-		        AND = {
-		            adm = 5
-		            dip = 5
-		            mil = 5
+		            NOT = { ruler_age = 65 }
+                    mehmehmehai_strong_ruler_trigger = yes
 		        }
 		    }
 		}

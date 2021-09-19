@@ -39,7 +39,7 @@ trade_ideas = {
         #PERSONALITY
 		modifier = {
 			factor = 1.5
-			ROOT = { ruler_has_good_dip_personality = yes }
+			ROOT = { ruler_has_personality = entrepreneur_personality }
 		}
         modifier = {
 		    factor = 1.4
@@ -114,23 +114,31 @@ trade_ideas = {
 
 		#POTENTIAL
 		modifier = {
-			factor = 1.5
-			is_great_power = yes
-		}
-		modifier = {
-			factor = 1.5
-			colony = 2
+			factor = 1.1
+			ROOT = { is_great_power = yes }
 		}
 		modifier = {
 			factor = 1.4
-			xorme_wealthy_region_trigger = yes
+			ROOT = { colony = 2 }
+		}
+		modifier = {
+		    factor = 1.25
+		    calc_true_if = {
+                all_owned_province = {
+                    AND = {
+                        is_core = ROOT
+                        province_has_center_of_trade_of_level = 1
+                    }
+                }
+                amount = 5
+            }
 		}
 		modifier = {
            factor = 1.15
            ROOT = { has_reform = free_city }
 		}
 		modifier = {
-			factor = 2.0
+			factor = 1.45
 			ROOT = {
 			    AND = {
 			        NOT = { monthly_income = 100 }
@@ -140,7 +148,7 @@ trade_ideas = {
 			}
 		}
 		modifier = {
-		    factor = 1.25
+		    factor = 1.1
 		    ROOT = {
 		        num_of_ports = 8
             }
@@ -174,15 +182,6 @@ trade_ideas = {
         modifier = {
 			factor = 1.8
 			has_idea_group = administrative_ideas
-		}
-
-		modifier = {
-			factor = 2.0
-			xorme_can_select_fifth_idea_group_trigger = yes
-		}
-		modifier = {
-			factor = 2.0
-			xorme_can_select_seventh_idea_group_trigger = yes
 		}
 	}
 }

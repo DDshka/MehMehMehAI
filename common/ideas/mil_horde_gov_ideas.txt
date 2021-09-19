@@ -36,15 +36,11 @@ horde_gov_ideas = {
 
         #PERSONALITY
 		modifier = {
-			factor = 2.0
-			ROOT = { ruler_has_good_mil_personality = yes }
-		}
-		modifier = {
-		    factor = 1.8
+		    factor = 1.5
 		    ROOT = { personality = ai_militarist }
 		}
         modifier = {
-		    factor = 1.5
+		    factor = 1.25
 		    ROOT = {
 		        OR = {
 		            personality = ai_diplomat
@@ -151,12 +147,6 @@ horde_gov_ideas = {
         modifier = {
 			factor = 1.8
 			ROOT = { has_idea_group = diplomatic_ideas }
-		}
-
-		#PRIORITY
-		modifier = {
-			factor = 2.0
-			xorme_can_select_first_idea_group_trigger = yes
 		}
 	}
 }

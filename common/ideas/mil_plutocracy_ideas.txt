@@ -35,35 +35,35 @@ plutocracy_ideas = {
 	}
 
 	ai_will_do = {
-		factor = 1.0
+		factor = 2.0
 
         #PERSONALITY
 		modifier = {
-		    factor = 1.8
+		    factor = 1.5
 		    ROOT = { ruler_has_personality = industrious_personality }
 		}
         modifier = {
-		    factor = 1.8
+		    factor = 1.5
 		    ROOT = { ruler_has_personality = inspiring_leader_personality }
 		}
 		modifier = {
-		    factor = 1.8
+		    factor = 1.5
 		    ROOT = { ruler_has_personality = righteous_personality }
 		}
 		modifier = {
-		    factor = 1.8
+		    factor = 1.35
 		    ROOT = { personality = ai_militarist }
 		}
         modifier = {
-		    factor = 1.05
+		    factor = 1.15
 		    ROOT = { personality = ai_diplomat }
 		}
         modifier = {
-		    factor = 1.4
+		    factor = 1.5
 		    ROOT = { personality = ai_capitalist }
 		}
 		modifier = {
-		    factor = 1.05
+		    factor = 1.15
 		    ROOT = { personality = ai_colonialist }
 		}
 
@@ -153,7 +153,7 @@ plutocracy_ideas = {
 		    mehmehmehai_normal_goods_produced_country_trigger = yes
 		}
 		modifier = {
-		    factor = 1.2
+		    factor = 1.35
 		    OR = {
 		        xorme_medium_quality_trade_goods_trigger = yes
 		        xorme_high_quality_trade_goods_trigger = yes
@@ -172,12 +172,6 @@ plutocracy_ideas = {
 		modifier = {
 			factor = 2.0
 			ROOT = { has_idea_group = spy_ideas }
-		}
-
-		#PRIORITY
-		modifier = {
-			factor = 2.0
-			xorme_can_select_first_idea_group_trigger = yes
 		}
 	}
 }

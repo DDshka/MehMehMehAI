@@ -36,7 +36,7 @@ offensive_ideas = {
 			ROOT = { ruler_has_good_mil_personality = yes }
 		}
 		modifier = {
-		    factor = 1.8
+		    factor = 1.5
 		    ROOT = { personality = ai_militarist }
 		}
         modifier = {
@@ -121,13 +121,9 @@ offensive_ideas = {
             }
 		}
         modifier = {
-            factor = 2.0
+            factor = 1.5
             mehmehmehai_disciplined_country_trigger = yes
         }
-		modifier = {
-			factor = 2.0
-			is_subject_other_than_tributary_trigger = yes
-		}
 
 		#IDEAS
 		modifier = {

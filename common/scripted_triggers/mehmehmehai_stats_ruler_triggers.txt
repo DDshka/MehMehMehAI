@@ -29,3 +29,13 @@ mehmehmehai_strong_ruler_trigger = {
         mil = 5
     }
 }
+
+mehmehmehai_weak_ruler_trigger = {
+    NOT = {
+        AND = {
+            adm = 2
+            dip = 2
+            mil = 2
+        }
+    }
+}

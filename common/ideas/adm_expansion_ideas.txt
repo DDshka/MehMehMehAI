@@ -49,19 +49,19 @@ expansion_ideas = {
 			ruler_has_personality = expansionist_personality
 		}
         modifier = {
-		    factor = 2.0
+		    factor = 1.5
 		    ROOT = { personality = ai_colonialist }
 		}
         modifier = {
-		    factor =  1.1
+		    factor = 1.15
 		    ROOT = { personality = ai_capitalist }
 		}
 		 modifier = {
-		    factor = 0.8
+		    factor = 1.1
 		    ROOT = { personality = ai_diplomat }
 		}
         modifier = {
-		    factor = 0.5
+		    factor = 1.25
 		    ROOT = { personality = ai_militarist }
 		}
 
@@ -86,7 +86,7 @@ expansion_ideas = {
 		    }
 		}
         modifier = {
-		    factor = 1.5
+		    factor = 1.25
 		    ROOT = {
 		        AND = {
 		            has_heir = yes
@@ -137,15 +137,24 @@ expansion_ideas = {
 		#POTENTIAL
         modifier = {
 			factor = 2.0
-            is_colonial_nation = yes
+            ROOT = { is_colonial_nation = yes }
 		}
 		modifier = {
 		    factor = 1.8
-		    colony = 2
+		    ROOT = { colony = 2 }
+		}
+		modifier = {
+		    factor = 1.4
+		    ROOT = {
+		        AND = {
+		            NOT = { colony = 2 }
+		            has_idea_group = exploration_ideas
+		        }
+		    }
 		}
         modifier = {
 		    factor = 1.1
-		    monthly_income = 6
+		    ROOT = { monthly_income = 6 }
 		}
 		modifier = {
 		    factor = 2.0

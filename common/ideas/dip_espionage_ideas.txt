@@ -40,19 +40,19 @@ spy_ideas = {
 
 		#PERSONALITY
 		modifier = {
-			factor = 1.8
+			factor = 1.5
 			ruler_has_personality = intricate_web_weaver_personality
 		}
 		modifier = {
-			factor = 1.6
+			factor = 1.3
 			ruler_has_personality = secretive_personality
 		}
         modifier = {
-		    factor = 1.5
+		    factor = 1.25
 		    ROOT = { personality = ai_diplomat }
 		}
         modifier = {
-		    factor = 1.2
+		    factor = 1.05
 		    ROOT = { personality = ai_militarist }
 		}
         modifier = {
@@ -124,10 +124,8 @@ spy_ideas = {
 			is_part_of_hre = yes
 		}
 		modifier = {
-		    factor = 1.2
-		    ROOT = {
-		        current_income_balance = 10
-		    }
+		    factor = 1.05
+		    ROOT = { current_income_balance = 10 }
 		}
 
 		#IDEAS

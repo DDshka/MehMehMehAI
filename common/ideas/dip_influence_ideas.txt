@@ -34,8 +34,18 @@ influence_ideas = {
 
 		#LIMIT
 		modifier = {
-			factor = 0
+			factor = 0.1
 			is_subject_other_than_tributary_trigger = yes
+		}
+		modifier = {
+		    factor = 0.5
+		    AND = {
+		        ROOT = { is_emperor = no }
+                calc_true_if = {
+                    all_country = { is_subject_of = ROOT }
+                    amount = 0
+                }
+		    }
 		}
 
         #PERSONALITY
@@ -52,7 +62,7 @@ influence_ideas = {
 		    ROOT = { personality = ai_diplomat }
 		}
         modifier = {
-		    factor = 1.15
+		    factor = 1.1
 		    ROOT = { personality = ai_capitalist }
 		}
 		modifier = {
@@ -120,25 +130,33 @@ influence_ideas = {
 
 		#POTENTIAl
         modifier = {
-			factor = 1.5
+			factor = 1.4
 			ROOT = { is_emperor = yes }
 		}
+        modifier = {
+			factor = 1.35
+			ROOT = { is_emperor_of_china = yes }
+		}
+        modifier = {
+			factor = 1.5
+			ROOT = { has_reform = shogunate }
+		}
 		modifier = {
-			factor = 1.15
+			factor = 1.2
 			calc_true_if = {
 			    all_country = { is_subject_of = ROOT }
 			    amount = 2
 			}
 		}
 		modifier = {
-			factor = 1.25
+			factor = 1.35
             calc_true_if = {
 			    all_country = { is_subject_of = ROOT }
 			    amount = 3
 			}
 		}
 		modifier = {
-			factor = 1.35
+			factor = 1.45
             calc_true_if = {
 			    all_country = { is_subject_of = ROOT }
 			    amount = 4

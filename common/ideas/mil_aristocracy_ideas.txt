@@ -51,27 +51,9 @@ aristocracy_ideas = {
 	ai_will_do = {
 		factor = 1.0
 
-		#LIMIT
-		modifier = {
-			factor = 0.75
-			ROOT = {
-				NOT = {
-					OR = {
-						technology_group = eastern
-						technology_group = western
-						technology_group = muslim
-					}
-				}
-			}
-		}
-
 		#PERSONALITY
 		modifier = {
-			factor = 1.4
-			ROOT = { ruler_has_good_mil_personality = yes }
-		}
-		modifier = {
-		    factor = 1.8
+		    factor = 1.15
 		    ROOT = { personality = ai_militarist }
 		}
         modifier = {
@@ -147,21 +129,11 @@ aristocracy_ideas = {
 
 		#POTENTIAL
 		modifier = {
-			factor = 1.1
-			ROOT = {
-				OR = {
-					technology_group = eastern
-					technology_group = western
-					technology_group = muslim
-				}
-			}
-		}
-		modifier = {
-		    factor = 1.4
+		    factor = 1.35
 		    ROOT = { has_estate = estate_cossacks }
 		}
 		modifier = {
-		    factor = 2.0
+		    factor = 1.5
             ROOT = {
                 has_global_modifier_value = {
                     which = cavalry_power
@@ -170,7 +142,7 @@ aristocracy_ideas = {
             }
 		}
 		modifier = {
-		    factor = 1.4
+		    factor = 1.35
 		    ROOT = {
                 has_global_modifier_value = {
                     which = cavalry_cost
@@ -194,7 +166,16 @@ aristocracy_ideas = {
 		}
 		modifier = {
 			factor = 2.0
-			ROOT = { has_idea_group = spy_ideas }
+			ROOT = {
+			    AND = {
+			        has_idea_group = spy_ideas
+                    has_global_modifier_value = {
+                        which = cavalry_power
+                        value = 0.15
+                    }
+			    }
+
+            }
 		}
 	}
 }

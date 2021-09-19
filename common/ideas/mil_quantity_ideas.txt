@@ -31,8 +31,12 @@ quantity_ideas = {
 
 		#LIMIT
 		modifier = {
-			factor = 0.25
+			factor = 0.5
 			total_development = 1000
+		}
+		modifier = {
+			factor = 0.8
+			is_great_power = yes
 		}
 
 		#PERSONALITY
@@ -41,7 +45,7 @@ quantity_ideas = {
 			ROOT = { ruler_has_good_mil_personality = yes }
 		}
 		modifier = {
-		    factor = 2.0
+		    factor = 1.5
 		    ROOT = { personality = ai_militarist }
 		}
         modifier = {
@@ -148,9 +152,9 @@ quantity_ideas = {
 		}
 
 		#POTENTIAL
-		modifier = {
-			factor = 0.8
-			is_great_power = yes
+        modifier = {
+		    factor = 1.2
+		    ROOT = { is_subject = yes }
 		}
 		modifier = {
 			factor = 1.5
@@ -164,6 +168,10 @@ quantity_ideas = {
     	        }
     	        amount = 4
 		    }
+		}
+		modifier = {
+		    factor = 1.5
+		    ROOT = { manpower_percentage = 0.1 }
 		}
 
 		#IDEAS
@@ -186,12 +194,6 @@ quantity_ideas = {
         modifier = {
 			factor = 1.5
 			has_idea_group = religious_ideas
-		}
-
-		#PRIORITY
-		modifier = {
-			factor = 2.0
-			xorme_can_select_first_idea_group_trigger = yes
 		}
 	}
 }

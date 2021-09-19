@@ -31,42 +31,31 @@ defensive_ideas = {
 	ai_will_do = {
 		factor = 1.0
 
+        #LIMIT
 		modifier = {
 			factor = 0.5
 			is_great_power = yes
 		}
-		modifier = {
-			factor = 2.0
-            any_neighbor_country = {
-                ai_attitude = {
-                    who = ROOT
-                    attitude = attitude_domineering
-                }
-            }
-		}
-		modifier = {
-		    factor = 1.8
-            num_of_owned_provinces_with = {
-                value = 6
-                fort_level = 2
-            }
-		}
 
 		#PERSONALITY
 		modifier = {
-			factor = 1.4
-			ROOT = { ruler_has_good_mil_personality = yes }
+			factor = 1.2
+			ROOT = { ruler_has_personality = tactical_genius_personality }
+		}
+        modifier = {
+		    factor = 1.35
+		    ROOT = { ruler_has_personality = inspiring_leader_personality }
 		}
 		modifier = {
-		    factor = 1.4
+		    factor = 1.35
 		    ROOT = { personality = ai_militarist }
 		}
         modifier = {
-		    factor = 1.1
+		    factor = 1.2
 		    ROOT = { personality = ai_diplomat }
 		}
         modifier = {
-		    factor = 1.25
+		    factor = 1.1
 		    ROOT = { personality = ai_capitalist }
 		}
 		modifier = {
@@ -134,6 +123,10 @@ defensive_ideas = {
 
 		#POTENTIAL
 		modifier = {
+		    factor = 1.2
+		    ROOT = { is_march = yes }
+		}
+		modifier = {
 			factor = 2.0
 			any_neighbor_country = {
 			    AND = {
@@ -153,8 +146,34 @@ defensive_ideas = {
 			}
 		}
 
+        modifier = {
+			factor = 1.75
+            any_neighbor_country = {
+                ai_attitude = {
+                    who = ROOT
+                    attitude = attitude_domineering
+                }
+            }
+		}
 		modifier = {
-		    factor = 2.0
+		    factor = 1.5
+            num_of_owned_provinces_with = {
+                value = 6
+                fort_level = 2
+            }
+		}
+		modifier = {
+		    factor = 1.25
+		    calc_true_if = {
+                all_owned_province = {
+                   has_terrain = mountain
+                    NOT = { local_autonomy = 0.1 }
+                }
+                amount = 5
+            }
+		}
+		modifier = {
+		    factor = 1.6
 		    any_neighbor_country = {
 		        has_global_modifier_value = {
 		            which = siege_ability
@@ -183,16 +202,6 @@ defensive_ideas = {
         modifier = {
 			factor = 1.2
 			ROOT = { has_idea_group = trade_ideas }
-		}
-
-		#PRIORITY
-		modifier = {
-			factor = 2.0
-			xorme_can_select_third_idea_group_trigger = yes
-		}
-		modifier = {
-			factor = 2.0
-			xorme_can_select_first_idea_group_trigger = yes
 		}
 	}
 }

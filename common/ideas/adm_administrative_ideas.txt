@@ -55,11 +55,11 @@ administrative_ideas = {
 		    ROOT = { personality = ai_diplomat }
 		}
         modifier = {
-		    factor = 1.6
+		    factor = 1.35
 		    ROOT = { personality = ai_militarist }
 		}
         modifier = {
-		    factor = 1.2
+		    factor = 1.15
 		    ROOT = { personality = ai_capitalist }
 		}
 
@@ -84,7 +84,7 @@ administrative_ideas = {
 		    }
 		}
         modifier = {
-		    factor = 1.5
+		    factor = 1.25
 		    ROOT = {
 		        AND = {
 		            has_heir = yes
